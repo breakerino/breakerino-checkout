@@ -1,0 +1,19 @@
+/*
+	id: breakerino-checkout-fields
+	name: Breakerino Checkout | Fields
+	group: templates
+	type: partial
+	version: 0.1.0
+	created: 20/03/25
+	updated: 20/03/25
+*/
+
+.brk-checkout-form-field-group {
+	--fields-gap: 1.6rem;
+	
+	display: flex;
+	flex-flow: row wrap;
+	gap: var(--fields-gap);
+	
+	container: checkout-fields / inline-size;
+}

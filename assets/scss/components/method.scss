@@ -1,0 +1,95 @@
+/*
+	id: breakerino-checkout-method
+	name: Breakerino Checkout | Method
+	group: components
+	type: partial
+	version: 0.1.0
+	created: 20/03/25
+	updated: 20/03/25
+*/
+
+.brk-checkout-method {
+	display: flex;
+	flex-direction: column;
+	position: relative;
+
+	&__inner {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: space-between;
+		gap: 1rem;
+		padding: 1.75rem 1.5rem;
+		border: 0.2rem solid #d9d9d9;
+		border-radius: 1rem;
+		z-index: 1;
+		background-color: var(--white);
+		
+		@container methods-wrapper (min-width: 50rem)  {
+			gap: 1.2rem;
+			padding: 2.4rem 3.2rem;
+		}
+	}
+
+	&__input {
+		display: flex;
+		align-items: center;
+		
+		input[type=radio] + span {
+			--size: 2.4rem;
+			--gap: 0rem;
+		}
+	}
+
+	&__content {
+		display: flex;
+		flex-direction: column;
+		gap: 0.8rem;
+		flex: 1;
+	}
+	
+	&__label {
+		font-size: 1.5rem;
+		font-weight: 600;
+		
+		@container methods-wrapper (min-width: 50rem)  {
+			font-size: 1.8rem;
+		}
+	}
+
+	&__price {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-end;
+		flex: 0 0 7ch;
+		font-size: 1.6rem;
+		font-weight: 600;
+		
+		@container methods-wrapper (min-width: 50rem)  {
+			font-size: 1.8rem;
+		}
+	}
+
+	&__after {
+		--offset-y: 1.5rem;
+		display: none;
+		padding: calc(2.4rem + var(--offset-y)) 3.2rem 2.4rem ;
+		background-color: var(--secondary-ultra-light);
+		border: 0.2rem solid var(--secondary-light);
+		border-radius: 1rem;
+		margin-top: calc(var(--offset-y) * -1);
+		cursor: initial;
+	}
+	
+	&--selected {
+		.brk-checkout-method__after {
+			display: block;
+		}
+		
+		.brk-checkout-method__inner {
+			border-color: var(--primary);
+			background-color: var(--secondary-ultra-light);
+			color: var(--primary);
+		}
+	}
+}

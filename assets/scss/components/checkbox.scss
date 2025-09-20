@@ -1,0 +1,64 @@
+/*
+	id: breakerino-checkout-checkbox
+	name: Modules | breakerino Checkout | Checkbox
+	group: components
+	type: partial
+	version: 0.4.0
+	created: 20/03/25
+	updated: 08/08/25
+*/
+
+input[type='checkbox'] {
+	display: none;
+
+	& + span {
+		--gap: 1.2rem;
+		--size: 2.4rem;
+
+		position: relative;
+		padding-left: calc(var(--size) + var(--gap));
+		cursor: pointer;
+		user-select: none;
+	}
+
+	& + span::before {
+		content: '';
+		position: absolute;
+		left: 0;
+		top: 50%;
+		transform: translateY(-50%);
+		width: var(--size);
+		height: var(--size);
+		border: 0.2rem solid #ccc;
+		background: #fff;
+		border-radius: var(--radius-s);
+		transition: all 300ms ease-in-out;
+	}
+
+	& + span::after {
+		content: '';
+		position: absolute;
+		left: 0;
+		top: 50%;
+		transform: translateY(-50%);
+		width: var(--size);
+		height: var(--size);
+		border-radius: var(--radius-s);
+		opacity: 0;
+		transition: opacity 300ms ease-in-out;
+	}
+
+	&:checked + span::before {
+		border-color: var(--primary);
+		background-color: var(--primary);
+		box-shadow: inset 0 0 0 0.15rem var(--white);
+	}
+
+	&:checked + span::after {
+		opacity: 1;
+		background-image: url('/wp-content/plugins/breakerino-checkout/assets/icons/checkmark.svg');
+		background-size: calc(var(--size) * 0.5);
+		background-repeat: no-repeat;
+		background-position: center;
+	}
+}

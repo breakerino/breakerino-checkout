@@ -1,0 +1,94 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Breakerino Checkout\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-09-12 10:45+0000\n"
+"PO-Revision-Date: 2025-09-12 10:58+0000\n"
+"Last-Translator: \n"
+"Language-Team: Slovenčina\n"
+"Language: sk_SK\n"
+"Plural-Forms: nplurals=3; plural=( n == 1 ) ? 0 : ( n >= 2 && n <= 4 ) ? 1 : "
+"2;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco https://localise.biz/\n"
+"X-Loco-Version: 2.7.1; wp-6.7.2\n"
+"X-Domain: breakerino-checkout"
+
+#: views/cart-items.php:43
+#, php-format
+msgid "%s/pc"
+msgid_plural "%s/pc"
+msgstr[0] "%s/ks"
+msgstr[1] "%s/ks"
+msgstr[2] "%s/ks"
+
+#: views/cart-items.php:34
+#, php-format
+msgid "%sx"
+msgid_plural "%sx"
+msgstr[0] "%sx"
+msgstr[1] "%sx"
+msgstr[2] "%sx"
+
+#: views/billing.php:53
+msgid "Add order note"
+msgstr "Pridať poznámku k objednávke"
+
+#: views/checkout.php:26
+msgid "Billing details"
+msgstr "Fakturačné údaje"
+
+#. Author of the plugin
+msgid "Breakerino"
+msgstr ""
+
+#. Name of the plugin
+msgid "Breakerino Checkout"
+msgstr ""
+
+#: views/billing.php:45
+msgid "Create an account"
+msgstr "Vytvoriť účet"
+
+#. URI of the plugin
+#. Author URI of the plugin
+msgid "https://breakerino.me"
+msgstr ""
+
+#: src/Plugin.php:152 views/checkout.php:54
+msgid "Order summary"
+msgstr "Objednávka"
+
+#: views/checkout.php:44
+msgid "Payment"
+msgstr "Platba"
+
+#: views/billing.php:36
+msgid "Purchase for a company"
+msgstr " Nákup na firmu"
+
+#: views/billing.php:27
+#, fuzzy
+#| msgid "Ship to a different address?"
+msgid "Ship to a different address"
+msgstr "Odoslať na inú adresu"
+
+#: views/checkout.php:35
+msgid "Shipping"
+msgstr "Doprava"
+
+#. Description of the plugin
+msgid ""
+"Step by step checkout for WooCommerce. Provides a streamlined, multi-step "
+"checkout process to improve user experience and increase conversions."
+msgstr ""
+
+#: views/subtotal.php:8
+msgid "Subtotal"
+msgstr "Medzisúčet"
+
+#: views/total.php:8
+msgid "Total"
+msgstr "Cena spolu"

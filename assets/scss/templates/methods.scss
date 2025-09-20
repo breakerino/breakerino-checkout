@@ -1,0 +1,17 @@
+/*
+	id: breakerino-checkout-methods
+	name: Modules | breakerino Checkout | Methods
+	group: templates
+	type: partial
+	version: 0.1.0
+	created: 20/03/25
+	updated: 20/03/25
+*/
+
+.brk-checkout-methods {
+	display: flex;
+	flex-direction: column;
+	gap: 1.6rem;
+	
+	container: methods-wrapper / inline-size;
+}

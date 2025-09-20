@@ -1,0 +1,40 @@
+/*
+	id: breakerino-checkout-radio
+	name: Breakerino Checkout | Radio
+	group: components
+	type: partial
+	version: 0.1.0
+	created: 20/03/25
+	updated: 08/08/25
+*/
+
+input[type=radio] {
+	display: none;
+
+	& + span {
+		--size: 2.4rem;
+		--gap: 1rem;
+		
+    position: relative;
+    padding-left: calc(var(--size) + var(--gap));
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: var(--size);
+      height: var(--size);
+      border: 0.2rem solid var(--secondary-light);
+      border-radius: 50%;
+      background: var(--white);
+      transition: all 300ms ease-in-out;
+    }
+	}
+	
+	&:checked + span::before {
+		border-color: var(--primary); 
+		background: radial-gradient(circle, var(--primary) 40%, transparent 41%);
+	}
+}

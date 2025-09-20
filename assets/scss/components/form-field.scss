@@ -1,0 +1,82 @@
+/*
+	id: breakerino-checkout-form-field
+	name: Modules | breakerino Checkout | Form Field
+	group: components
+	type: partial
+	version: 0.1.0
+	created: 20/03/25
+	updated: 20/03/25
+*/
+
+.brk-checkout-form-field {
+	display: flex;
+	flex-direction: column;
+	gap: 0.625rem;
+	margin-bottom: 0;
+	
+	flex: 0 0 100%;
+	
+	@container checkout-fields (min-width: 37.5rem) {
+		width: calc(50% - var(--fields-gap) / 2);
+		flex: 0 0 calc(50% - var(--fields-gap) / 2);
+	}
+	
+	label {
+		font-size: 1.6rem;
+		font-weight: 600;
+		color: var(--base);
+		margin-bottom: 0;
+		
+		span.required {
+			font-size: 1.6rem;
+			color: var(--danger);
+			text-decoration: none;
+		}
+		
+		span.optional {
+			display: none;
+		}
+	}
+	
+	input {
+		font-size: 1.6rem;
+		font-weight: 400;
+		color: var(--base);
+		border-radius: 0.5rem;
+		border: 0.2rem solid var(--secondary-light);
+		padding: 1.4rem 1.6rem;
+		line-height: 1;
+		height: 4.8rem;
+	}
+	
+	textarea {
+		resize: none;
+	}
+	
+	&--hidden {
+		display: none;
+	}
+	
+	&--full {
+		width: 100%;
+		flex: 0 0 100%;
+	}
+	
+	&.woocommerce-invalid.validate-required {
+		label {
+			color: var(--base);
+		}
+		
+		input {
+			border-color: var(--danger);
+		}
+	}
+	
+	.checkout-inline-error-message {
+		font-size: 1.2rem;
+		color: var(--danger);
+		line-height: 1.2;
+		margin-top: 0.15rem;
+	}
+}
+	

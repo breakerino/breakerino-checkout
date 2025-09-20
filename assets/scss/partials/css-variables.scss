@@ -1,0 +1,64 @@
+/*
+	id: breakerino-checkout-css-variables
+	name: CSS Variables
+	group: partials
+	type: partial
+	conditions: is_checkout
+	version: 0.1.0
+	created: 08/08/25
+	updated: 08/08/25
+*/
+
+.brk-checkout {
+	// Primary
+	--primary: #DAA352;
+  --primary-hover: #C69349;
+  --primary-ultra-light: #FDEFDB;
+  --primary-light: #080807;
+  --primary-medium: #85857a;
+  --primary-dark: #42423d;
+	
+	// Secondary
+  --secondary: #000000;
+  --secondary-hover: black;
+  --secondary-ultra-light: #FAFAFA;
+  --secondary-semi-light: #F5F5F5;
+  --secondary-light: #d9d9d9;
+  --secondary-medium: #898989;
+  --secondary-dark: #616161;
+	
+	// Accent
+  --accent: #0fa754;
+  --accent-hover: #10ba5c;
+  --accent-ultra-light: #EBF6ED;
+  --accent-light: #b9f9d6;
+  --accent-medium: #14eb75;
+  --accent-dark: #0a753a;
+		
+	// Danger
+	--danger: #DC3545;
+  --danger-hover: #e35a67;
+  --danger-ultra-light: #fbe9eb;
+  --danger-light: #f4bec3;
+  --danger-medium: #d92638;
+  --danger-dark: #410b11;
+	
+	// Base
+	--base: #1c1c1a;
+	--base-hover: #22221f;
+	--base-light: #dadad7;
+	--base-medium: #85857a;
+	--base-dark: #42423d;
+	
+	// Black & White
+  --white: #fff;
+  --black: #000;
+	
+	// Radii
+	--radius-xs: 0.4444444444rem;
+  --radius-s: 0.6666666667rem;
+  --radius-m: 1rem;
+  --radius-l: 1.5rem;
+  --radius-xl: 2.25rem;
+  --radius-xxl: 3.375rem;
+}
