@@ -158,6 +158,10 @@ class Plugin extends PluginBase implements Constants {
 	 * @return void
 	 */
 	public function handle_checkout_init() {
+		if ( ! ( WC()->session instanceof \WC_Session ) ) {
+			return;
+		}
+		
 		if ( empty( WC()->session->get( 'selected_shipping_methods' ) ) ) {
 			Helpers::reset_selected_shipping_method();
 		}

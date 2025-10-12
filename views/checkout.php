@@ -5,7 +5,6 @@ defined('ABSPATH') || exit;
 use Breakerino\Checkout\Helpers;
 
 $formClasses  = ['woocommerce-checkout', 'checkout'];
-$checkoutTemplate = Bricks\Woocommerce::get_template_data_by_type('wc_form_checkout');
 ?>
 
 <div class="brxe-container before-checkout">
