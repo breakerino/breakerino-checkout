@@ -1,0 +1,175 @@
+/*
+	id: breakerino-checkout-order-summary
+	name: Breakerino Checkout | Order Summary
+	group: templates
+	type: partial
+	version: 0.1.0
+	created: 20/03/25
+	updated: 20/03/25
+*/
+
+div.brk-checkout-section--summary {
+	background: #FAFAFA;
+	gap: 1.6rem;
+	position: sticky;
+	top: 2rem;
+}
+
+.brk-checkout-cart-items {
+	display: flex;
+	flex-direction: column;
+	gap: 2.4rem;
+	width: 100%;
+}
+
+.brk-checkout-subtotal {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	gap: 1.2rem;
+	background: var(--secondary-semi-light);
+	padding: 1rem 1.6rem;
+	border-radius: var(--radius-s);
+	
+	&-label {
+		font-size: 1.6rem;
+		line-height: 1.15;
+		font-weight: 600;
+		color: var(--base);
+		
+		@container checkout-column (min-width: 50rem)  {
+			font-size: 2rem;
+		}
+	}
+	
+	&-value {
+		font-size: 2rem;
+		line-height: 1.15;
+		font-weight: 700;
+		color: var(--base);
+		
+		@container checkout-column (min-width: 50rem)  {
+			font-size: 2.4rem;
+		}
+	}
+}
+
+.brk-checkout-fees {
+	display: flex;
+	flex-direction: column;
+	gap: 1.2rem;
+	padding: 1.8rem 0;
+	
+	&:has(.brk-checkout-fee-item) {
+		border-top: 0.1rem solid var(--secondary-light);
+		border-bottom: 0.1rem solid var(--secondary-light);
+	}
+}
+
+.brk-checkout-fee-item {
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	gap: 1.2rem;
+	
+	&-label {
+		font-size: 1.6rem;
+		line-height: 1.15;
+		font-weight: 600;
+		color: var(--base);	
+	}
+	
+	&-value {
+		font-size: 1.8rem;
+		line-height: 1.15;
+		font-weight: 600;
+		color: var(--base);
+	}
+}
+
+.brk-checkout-total {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	gap: 1.2rem;
+	background: var(--accent-ultra-light);
+	padding: 1.2rem 1.6rem;
+	border-radius: var(--radius-s);
+	
+	&-label {
+		font-size: 2rem;
+		line-height: 1.15;
+		font-weight: 600;
+		color: var(--base);
+		
+		@container checkout-column (min-width: 50rem)  {
+			font-size: 2.4rem;
+		}
+	}
+	
+	&-value {
+		display: flex;
+		flex-direction: column;
+		
+		strong, strong > span {
+			font-size: 2.6rem;
+			line-height: 1.15;
+			font-weight: 700;
+			color: var(--base);
+			text-align: right;
+			
+			@container checkout-column (min-width: 50rem)  {
+				font-size: 3.2rem;
+			}
+		}
+		
+		small {
+			font-size: 1.2rem;
+			font-weight: 300;
+			text-align: right;
+			
+			& > span {
+				font-weight: 400;
+			}
+		}
+	}
+}
+
+.brk-checkout-place-order {
+	display: flex;
+	flex-direction: column;
+	gap: 1.6rem;
+	
+	button[type=submit] {
+		font-size: 2rem;	
+		margin-top: 0;
+		line-height: 1.15;
+		font-weight: 700;
+		color: var(--white);
+		background: var(--accent);
+		padding: 2rem;
+		
+		border-radius: var(--radius-s);
+		border: none;
+		cursor: pointer;
+		transition: background 300ms ease, opacity 300ms ease;
+		
+		@container checkout-column (min-width: 50rem) {
+			font-size: 2.6rem;	
+			padding: 2.4rem;
+		}
+		
+		&:hover {
+			background: var(--accent-hover);
+		}
+		
+		&:disabled {
+			opacity: 0.25;
+			cursor: not-allowed;
+		}
+ 	}
+}

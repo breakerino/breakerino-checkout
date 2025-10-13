@@ -1,0 +1,15 @@
+/*
+	id: breakerino-checkout-woocommerce
+	name: WooCommerce Styles
+	group: partials
+	type: partial
+	conditions: is_checkout
+	version: 0.1.0
+	created: 08/08/25
+	updated: 08/08/25
+*/
+
+form.woocommerce-checkout {
+	width: 100%;
+	container: checkout-container / inline-size;
+}

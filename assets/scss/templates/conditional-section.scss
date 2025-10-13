@@ -1,0 +1,65 @@
+/*
+	id: breakerino-checkout-conditional-section
+	name: Breakerino Checkout | Conditional Section
+	group: templates
+	type: partial
+	version: 0.1.0
+	created: 05/04/25
+	updated: 05/04/25
+*/
+
+.brk-checkout-conditional-section {
+	display: flex;
+	flex-direction: column;
+	
+	&__header {
+		display: flex;
+		align-items: center;
+		gap: 1.2rem;
+		z-index: 1;
+		cursor: pointer;
+		
+		border: 0.1rem solid var(--secondary-light);
+		border-radius: 1rem;
+		padding: 1.4rem 1.6rem;
+		background-color: var(--secondary-ultra-light);
+		
+		input[type=radio] {
+			& + span {
+				--gap: 1.2rem;
+				--size: 2.4rem;
+			}
+		}
+		
+		&-text {
+			font-size: 1.5rem;
+			line-height: 1.25;
+			font-weight: 500;
+			color: var(--base);
+			margin-bottom: 0;
+			
+			@container checkout-wrapper (min-width: 50rem)  {
+				font-size: 1.6rem;
+			}
+		}
+	}
+	
+	&__content {
+		border: 0.1rem solid var(--secondary-light);
+		border-radius: 0 0 1rem 1rem;
+		padding: calc(1.6rem + 1rem) 1.6rem 1.6rem;
+		margin-top: -1rem;
+		background-color: var(--secondary-ultra-light);
+		display: none;
+	}
+	
+	&--active {
+		.brk-checkout-conditional-section__header {
+			background-color: var(--primary-ultra-light);
+		}
+		
+		.brk-checkout-conditional-section__content {
+			display: block
+		}
+	}
+}
