@@ -4,36 +4,37 @@
 	group: components
 	type: partial
 	version: 0.1.0
-	created: 20/03/25
-	updated: 20/03/25
+	created: 20/03/2025
+	updated: 20/03/2025
 */
 
 .brk-checkout-cart-item {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
-	gap: 1.2rem;
+	gap: var(--space-xs);
 	width: 100%;
 	
 	&-info {
 		display: flex;
 		align-items: center;
-		gap: 1.2rem;
+		gap: var(--space-xs);
 	}
 
 	&-image {
-		--size: 4.8rem;
+		--size: 4.5rem;
+		
 		position: relative;
 		flex: 0 0 var(--size);
 		width: var(--size);
 		height: var(--size);
-		border-radius: var(--radius-s);
-		background-color: var(--white);
-		border: 0.1rem solid var(--secondary-light);
-		padding: 0.75rem;
+		border-radius: var(--radius-lg);
+		background-color: hsl(from var(--color-white) h s l / 0.25);
+		border: var(--border-thin) solid var(--secondary-light);
+		padding: var(--space-2xs);
 		
-		@container checkout-wrapper (min-width: 50rem)  {
-			--size: 7.2rem;
+		@container checkout-wrapper (min-width: 30rem)  {
+			--size: 4.5rem;
 		}
 		
 		img {
@@ -44,69 +45,69 @@
 		}
 	}
 	
-	&-quantity {
-		position: absolute;
-		bottom: -0.8rem;
-		right: -0.8rem;
-		width: fit-content;
-		font-size: 1.4rem;
-		font-weight: 600;
-		line-height: 1;
-		color: var(--accent);
-		background-color: var(--accent-ultra-light);
-		padding: 0.4rem 0.8rem;
-		border-radius: var(--radius-m);
-	}
-	
 	&-text {
 		display: flex;
 		flex-direction: column;
-		gap: 0.6rem;
+		gap: var(--space-3xs);
 	}
 	
 	&-name {
-		font-size: 1.5rem; 
-		line-height: 1.25;
-		font-weight: 400;
-		color: var(--base);
+		font-size: var(--text-lg);
+		font-family: var(--font-heading);
+		line-height: var(--leading-snug);
+		font-weight: var(--font-weight-regular);
+		color: var(--color-primary-700);
 		
-		@container checkout-wrapper (min-width: 50rem)  {
-			font-size: 1.6rem; 
+		@container checkout-wrapper (min-width: 30rem)  {
+			font-size: var(--text-lg);
 		}
+	}
+	
+	&-quantity {
+		display: flex;
+		align-items: center;
+		width: fit-content;
+		font-size: var(--text-xs);
+		font-weight: var(--font-weight-medium);
+		line-height: var(--leading-none);
+		color: var(--color-primary-700);
+		background-color: hsl(from var(--color-white) h s l / 0.45);
+		padding: var(--space-3xs) var(--space-2xs);
+		border-radius: var(--radius-lg);
 	}
 	
 	&-prices {
 		display: flex;
 		flex-direction: column;
 		flex: 0 0 6ch;
-		gap: 0.6rem;
+		gap: var(--space-3xs);
 		align-items: flex-end;
 		justify-content: center;
 		
-		@container checkout-wrapper (min-width: 50rem)  {
+		@container checkout-wrapper (min-width: 30rem)  {
 			flex: 0 0 10ch;
 		}
 	}
 	
 	&-subtotal {
-		font-size: 1.6rem; 
-		line-height: 1;
-		font-weight: 600;
-		color: var(--base);
+		font-size: var(--text-md);
+		line-height: var(--leading-none);
+		font-weight: var(--font-weight-semibold);
+		color: var(--color-primary-700);
 		
-		@container checkout-wrapper (min-width: 50rem)  {
-			font-size: 2rem;
+		@container checkout-wrapper (min-width: 30rem)  {
+			font-size: var(--text-md);
 		}
 	}
 	
 	&-price-per-unit {
-		font-size: 1.1rem;
-		line-height: 1;
-		font-weight: 400;
-		color: var(--secondary-dark);
+		font-size: var(--text-xs);
+		line-height: var(--leading-none);
+		font-weight: var(--font-weight-regular);
+		color: var(--color-primary-700);
 		
-		@container checkout-wrapper (min-width: 50rem)  {
-			font-size: 1.3rem;
+		@container checkout-wrapper (min-width: 30rem)  {
+			font-size: var(--text-xs);
 		}
 	}
 }

@@ -4,32 +4,33 @@
 	group: components
 	type: partial
 	version: 0.1.0
-	created: 20/03/25
-	updated: 20/03/25
+	created: 20/03/2025
+	updated: 02/12/2025
 */
 
 .brk-checkout-form-field {
 	display: flex;
 	flex-direction: column;
-	gap: 0.625rem;
-	margin-bottom: 0;
+	gap: var(--space-2xs);
+	margin: 0;
 	
 	flex: 0 0 100%;
 	
-	@container checkout-fields (min-width: 37.5rem) {
+	@container checkout-fields (min-width: 32rem) {
 		width: calc(50% - var(--fields-gap) / 2);
 		flex: 0 0 calc(50% - var(--fields-gap) / 2);
 	}
 	
 	label {
-		font-size: 1.6rem;
-		font-weight: 600;
-		color: var(--base);
-		margin-bottom: 0;
+		font-size: var(--text-sm);
+		font-weight: var(--font-weight-semibold);
+		color: var(--color-primary-700);
+		line-height: var(--leading-snug);
+		margin: 0;
 		
 		span.required {
-			font-size: 1.6rem;
-			color: var(--danger);
+			font-size: var(--text-sm);
+			color: var(--color-danger);
 			text-decoration: none;
 		}
 		
@@ -38,19 +39,30 @@
 		}
 	}
 	
-	input {
-		font-size: 1.6rem;
-		font-weight: 400;
-		color: var(--base);
-		border-radius: 0.5rem;
-		border: 0.2rem solid var(--secondary-light);
-		padding: 1.4rem 1.6rem;
-		line-height: 1;
-		height: 4.8rem;
+	input, textarea {
+		font-size: var(--text-sm);
+		font-weight: var(--font-weight-regular);
+		color: var(--color-primary-800);
+		border-radius: var(--radius-2xl);
+		padding: var(--space-sm) var(--space-lg);
+		line-height: var(--leading-none);
+		height: 100%;
+		outline: none !important;
+		border: none !important;
+		
+		transition: border var(--transition-duration) var(--transition-timing-function);
+		
+		&[aria-invalid=true] {
+			border: var(--border-regular) var(--color-danger) solid !important; 
+		}
+		
+		// TODO: Accesiblity
 	}
 	
 	textarea {
 		resize: none;
+		min-height: 10rem;
+		border-radius: calc(var(--radius-2xl) * 0.75);
 	}
 	
 	&--hidden {
@@ -62,21 +74,17 @@
 		flex: 0 0 100%;
 	}
 	
-	&.woocommerce-invalid.validate-required {
+	&[aria-invalid=true] {
 		label {
-			color: var(--base);
-		}
-		
-		input {
-			border-color: var(--danger);
+			color: var(--color-primary-700);
 		}
 	}
 	
 	.checkout-inline-error-message {
-		font-size: 1.2rem;
-		color: var(--danger);
+		font-size: var(--text-2xs);
+		color: var(--color-danger);
 		line-height: 1.2;
-		margin-top: 0.15rem;
+		margin-top: calc(var(--space-2xs) / 2);
 	}
 }
 	

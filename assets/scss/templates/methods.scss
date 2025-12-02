@@ -4,14 +4,14 @@
 	group: templates
 	type: partial
 	version: 0.1.0
-	created: 20/03/25
-	updated: 20/03/25
+	created: 20/03/2025
+	updated: 20/03/2025
 */
 
 .brk-checkout-methods {
 	display: flex;
 	flex-direction: column;
-	gap: 1.6rem;
+	gap: var(--space-md);
 	
 	container: methods-wrapper / inline-size;
 }

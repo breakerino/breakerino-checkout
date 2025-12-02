@@ -6,17 +6,10 @@ if ( apply_filters( 'woocommerce_checkout_show_terms', true ) && function_exists
 	do_action( 'woocommerce_checkout_before_terms_and_conditions' );
 
 	?>
-	<div class="woocommerce-terms-and-conditions-wrapper">
-		<?php
-		/**
-		 * Terms and conditions hook used to inject content.
-		 *
-		 * @since 3.4.0.
-		 * @hooked wc_checkout_privacy_policy_text() Shows custom privacy policy text. Priority 20.
-		 * @hooked wc_terms_and_conditions_page_content() Shows t&c page content. Priority 30.
-		 */
-		do_action( 'woocommerce_checkout_terms_and_conditions' );
-		?>
+	<div class="brk-checkout-term-and-conditions">
+		<div class="brk-checkout-privacy-policy-text">
+			<?= wc_privacy_policy_text( 'checkout' ); ?>
+		</div>
 
 		<?php if ( wc_terms_and_conditions_checkbox_enabled() ) : ?>
 			<p class="form-row validate-required">

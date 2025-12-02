@@ -4,8 +4,8 @@
 	type: style
 	conditions: is_checkout
 	version: 0.1.0
-	created: 15/03/25
-	updated: 15/03/25
+	created: 15/03/2025
+	updated: 15/03/2025
 */
 
 // Partials
@@ -17,8 +17,8 @@
 	@import "components/form-field";
 	@import "components/method";
 	@import "components/cart-item";
-	@import "components/checkbox";
-	@import "components/radio";
+	//@import "components/checkbox";
+	//@import "components/radio";
 	@import "components/loader";
 
 	// Templates

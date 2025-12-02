@@ -31,10 +31,10 @@ $items = is_array($items) ? $items : [];
 				<div class="brk-checkout-cart-item-info">
 					<div class="brk-checkout-cart-item-image">
 						<img src="<?= $image; ?>" alt="<?= $product->get_name(); ?>">
-						<span class="brk-checkout-cart-item-quantity"><?= sprintf(_n('%sx', '%sx', $quantity, 'breakerino-checkout'), $quantity); ?></span>
 					</div>
 					<div class="brk-checkout-cart-item-text">
 						<a href="<?= $product->get_permalink(); ?>" target="_blank" class="brk-checkout-cart-item-name"><?= $name; ?></a>
+						<span class="brk-checkout-cart-item-quantity"><?= sprintf(_n('%sx', '%sx', $quantity, 'breakerino-checkout'), $quantity); ?></span>
 					</div>
 				</div>
 

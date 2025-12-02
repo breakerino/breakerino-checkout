@@ -4,12 +4,12 @@
 	group: templates
 	type: partial
 	version: 0.1.0
-	created: 20/03/25
-	updated: 20/03/25
+	created: 20/03/2025
+	updated: 20/03/2025
 */
 
 .brk-checkout-form-field-group {
-	--fields-gap: 1.6rem;
+	--fields-gap: var(--space-sm);
 	
 	display: flex;
 	flex-flow: row wrap;

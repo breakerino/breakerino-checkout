@@ -46,7 +46,9 @@ const BreakerinoCheckout = {
 	 * -------------------------------------------------------------
 	 */
 	elements: {
+		form: null,
 		wrapper: null,
+		loader: null
 	},
 
 	/** ------------------------------------------------------------
@@ -574,6 +576,12 @@ const BreakerinoCheckout = {
 	 * @returns void
 	 */
 	setElements() {
+		this.elements.form = document.querySelector(`[${this.getProp('dataPrefix')}-form]`);
+		
+		if (!this.elements.form) {
+			throw new Error(`Invalid checkout form element.`);
+		}
+		
 		this.elements.wrapper = document.querySelector(`.${this.getProp('classes.wrapper')}`);
 
 		if (!this.elements.wrapper) {
@@ -706,7 +714,7 @@ const BreakerinoCheckout = {
 		}
 
 		const checkboxes = sections.summary.elements.wrapper.querySelectorAll('input[type=checkbox]');
-		
+
 		for (const input of checkboxes) {
 			const checkbox = this.getCheckbox(input, { section: sections.summary.id });
 			this.setState(`checkboxes.${checkbox.id}`, checkbox);
@@ -725,7 +733,7 @@ const BreakerinoCheckout = {
 	 */
 	updateConditionalSections() {
 		this.setConditionalSections();
-		
+
 		requestAnimationFrame(this.renderConditionalSections.bind(this));
 	},
 
@@ -776,7 +784,7 @@ const BreakerinoCheckout = {
 		requestAnimationFrame(this.renderSections.bind(this));
 		requestAnimationFrame(this.renderSummarySection.bind(this));
 	},
-	
+
 	/**
 	 * Update checkboxes
 	 *
@@ -929,7 +937,7 @@ const BreakerinoCheckout = {
 		const conditionalSections = this.getState('conditionalSections');
 		const methods = this.getState('methods');
 		const checkboxes = this.getState('checkboxes');
-		
+
 		// Fields
 		for (const field of Object.values(fields)) {
 			if (field.elements.input.hasAttribute(`${this.getProp('dataPrefix')}-initialized`)) {
@@ -963,7 +971,7 @@ const BreakerinoCheckout = {
 				choice.elements.input.setAttribute(`${this.getProp('dataPrefix')}-initialized`, '');
 			}
 		}
-		
+
 		// Checkboxes
 		for (const checkbox of Object.values(checkboxes)) {
 			if (checkbox.elements.input.hasAttribute(`${this.getProp('dataPrefix')}-initialized`)) {
@@ -981,18 +989,30 @@ const BreakerinoCheckout = {
 	 * @returns void
 	 */
 	initCheckout() {
+		jQuery.fn.block = function () { return this; };
+		jQuery.fn.unblock = function () { return this; };
+
 		jQuery(document.body).on('init_checkout update_checkout', () => {
 			setTimeout(() => {
-				this.update();
 				this.setState('isLoading', true);
+				this.update();
 			}, 10);
 		});
 
 		jQuery(document.body).on('updated_checkout checkout_error', () => {
-			this.update();
-			this.bindEventHandlers();
-			this.setState('isLoading', false);
+			setTimeout(() => {
+				this.setState('isLoading', false);
+				this.update();
+				this.bindEventHandlers();
+			}, 10);
 		});
+		
+		jQuery(this.elements.form).on('checkout_place_order', () => {
+			setTimeout(() => {
+				this.setState('isLoading', true);
+				this.update();
+			}, 10);
+		})
 	},
 
 	/**

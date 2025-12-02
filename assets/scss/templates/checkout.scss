@@ -4,29 +4,40 @@
 	group: templates
 	type: partial
 	version: 0.1.0
-	created: 15/03/25
-	updated: 15/03/25
+	created: 15/03/2025
+	updated: 15/03/2025
 */
 
 & {
+	--gap: var(--space-xl); 
+	
 	display: grid;
 	grid-template-columns: 1fr;
-	gap: 2.4rem;
+	gap: var(--gap);
 	
 	position: relative;
 	
 	container: checkout-wrapper / inline-size;
 	
-	@container checkout-container (min-width: 76.8rem) {
-		grid-template-columns: 3fr 2fr;
+	@container checkout-container (min-width: 36rem) {
+		& {
+			--gap: var(--space-3xl); 
+		}
+	}
+	
+	@container checkout-container (min-width: 48rem) {
+		& {
+			grid-template-columns: 4fr 3fr;
+		}
 	}
 	
 	&__left,
 	&__right {
 		container: checkout-column / inline-size;
+		
 		width: 100%;
 		display: flex;
 		flex-direction: column;
-		gap: 2.4rem;
+		gap: var(--gap);
 	}	
 }
