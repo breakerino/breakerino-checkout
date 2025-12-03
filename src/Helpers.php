@@ -46,7 +46,7 @@ class Helpers {
 					$field['class'] = [];
 				}
 				
-				$field['class'][] = 'brk-checkout-form-field';
+				$field['class'][] = 'brk-ecommerce-checkout-form-field';
 				
 				return $field;
 			}, $fields);
@@ -118,5 +118,91 @@ class Helpers {
 		}
 		
 		return $fees;
+	}
+
+	/**
+	 * Get formatted order total HTML for either cart or order.
+	 *
+	 * @param WC_Cart|WC_Order|null $source
+	 * @return string
+	 */
+	public static function get_order_total_html( $source = null ) {
+		if ( null === $source ) {
+			$source = WC()->cart;
+		}
+
+		if ( ! $source || ( ! $source instanceof \WC_Cart && ! $source instanceof \WC_Order ) ) {
+			return '';
+		}
+
+		$orderTotal = $source instanceof \WC_Cart
+			? $source->get_total()
+			: $source->get_formatted_order_total();
+
+		if ( empty( $orderTotal ) ) {
+			return '';
+		}
+
+		$html = sprintf(
+			'<strong>%s</strong> ',
+			$orderTotal
+		);
+
+		if ( $source instanceof \WC_Order ) {
+			return apply_filters( 'breakerino/checkout/order_total_html', $html, $source, null );
+		}
+
+		if ( ! wc_tax_enabled() || ! $source->display_prices_including_tax() ) {
+			return apply_filters( 'breakerino/checkout/order_total_html', $html, null, $source );
+		}
+
+		$taxStrings = [];
+		$cartTaxTotals  = $source->get_tax_totals();
+
+		if ( get_option( 'woocommerce_tax_total_display' ) === 'itemized' ) {
+			foreach ( $cartTaxTotals as $code => $tax ) {
+				$taxStrings[] = sprintf( '%s %s', $tax->formatted_amount, $tax->label );
+			}
+		} elseif ( ! empty( $cartTaxTotals ) ) {
+			$taxStrings[] = sprintf(
+				'%s %s',
+				wc_price( $source->get_taxes_total( true, true ) ),
+				WC()->countries->tax_or_vat()
+			);
+		}
+
+		if ( empty( $taxStrings ) ) {
+			return apply_filters( 'breakerino/checkout/order_total_html', $html, null, $source );
+		}
+
+		$taxableAddress = WC()->customer->get_taxable_address();
+
+		if ( WC()->customer->is_customer_outside_base() && ! WC()->customer->has_calculated_shipping() ) {
+			$country = sprintf(
+				'%s%s',
+				WC()->countries->estimated_for_prefix( $taxableAddress[0] ),
+				WC()->countries->countries[ $taxableAddress[0] ]
+			);
+
+			/* translators: 1: tax amount 2: country name */
+			$taxText = sprintf(
+				__( '(includes %1$s estimated for %2$s)', 'breakerino-checkout' ),
+				implode( ', ', $taxStrings ),
+				$country
+			);
+		} else {
+			/* translators: %s: tax amount */
+			$taxText = sprintf(
+				__( '(includes %s)', 'breakerino-checkout' ),
+				implode( ', ', $taxStrings )
+			);
+		}
+
+		$html .= sprintf(
+			'<small>%s</small>',
+			wp_kses_post( $taxText )
+		);
+
+		return apply_filters( 'breakerino/checkout/order_total_html', $html, null, $source );
 	}
 }

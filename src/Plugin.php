@@ -44,7 +44,13 @@ class Plugin extends PluginBase implements Constants {
 				'priority' 	=> 10,
 				'args'		=> 1
 			],
-
+			[
+				'type'		=> 'action',
+				'hooks'		=> ['breakerino/assets-manager/supported_asset_conditions'],
+				'callback' 	=> ['$this', 'handle_adjust_supported_assets_conditions'],
+				'priority' 	=> 20,
+				'args'		=> 1
+			],
 			[
 				'type'		=> 'action',
 				'hooks'		=> ['woocommerce_checkout_order_review'],
@@ -126,11 +132,14 @@ class Plugin extends PluginBase implements Constants {
 	 * @return void
 	 */
 	public function handle_register_checkout_template($template, $templateName ) {
-		if ( $templateName !== 'checkout/form-checkout.php' ) {
-			return $template;
+		switch ($templateName) {
+			case 'checkout/form-checkout.php':
+				return $this->get_file_path('views/checkout/index.php');
+			case 'cart/cart.php':
+				return $this->get_file_path('views/cart/index.php');
 		}
 		
-		return $this->get_file_path('views/checkout.php');
+		return $template;
 	}
 	
 	/**
@@ -141,6 +150,19 @@ class Plugin extends PluginBase implements Constants {
 	public function handle_register_assets_dir($assetsDir) {
 		$assetsDir[] = dirname(__DIR__) . '/assets';
 		return $assetsDir;
+	}
+	
+	/**
+	 * Handle register assets dir
+	 * 
+	 * @return array 
+	 */
+	public function handle_adjust_supported_assets_conditions($conditions) {
+		$conditions = array_unique(
+			array_merge($conditions, ['is_cart', 'is_checkout'])
+		);
+		
+		return $conditions;
 	}
 	
 	/**
@@ -215,13 +237,13 @@ class Plugin extends PluginBase implements Constants {
 		unset($fragments['.woocommerce-checkout-review-order-table']);
 		
 		// Add custom fragments
-		$fragments['.brk-checkout-methods--shipping'] = Helpers::get_view_html('shipping');
-		$fragments['.brk-checkout-methods--payment'] = Helpers::get_view_html('payment');
-		$fragments['.brk-checkout-section--summary'] = Helpers::get_view_html('section', [
+		$fragments['.brk-ecommerce-checkout-methods--shipping'] = Helpers::get_view_html('checkout/shipping');
+		$fragments['.brk-ecommerce-checkout-methods--payment'] = Helpers::get_view_html('checkout/payment');
+		$fragments['.brk-ecommerce-checkout-section--summary'] = Helpers::get_view_html('checkout/section', [
 			'id' => 'summary',
 			'type' => 'summary',
 			'text' => __('Order summary', 'breakerino-checkout'),
-			'content_view' => 'order-summary'
+			'content_view' => 'checkout/order-summary'
 		]);
 		
 		return $fragments;

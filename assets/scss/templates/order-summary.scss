@@ -8,21 +8,21 @@
 	updated: 20/03/2025
 */
 
-.brk-checkout-section--summary {
+.brk-ecommerce-checkout-section--summary {
 	background: var(--color-primary-400);
 	gap: var(--space-xl);
 	position: sticky;
 	top: calc(var(--wp-admin--admin-bar--height, 0) + var(--space-3xl));
 }
 
-.brk-checkout-cart-items {
+.brk-ecommerce-checkout-cart-items {
 	display: flex;
 	flex-direction: column;
 	gap: var(--space-xl);
 	width: 100%;
 }
 
-.brk-checkout-subtotal {
+.brk-ecommerce-checkout-subtotal {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
@@ -56,19 +56,19 @@
 }
 
 // TODO
-.brk-checkout-fees {
+.brk-ecommerce-checkout-fees {
 	display: flex;
 	flex-direction: column;
 	gap: var(--space-2xs);
 	padding: var(--space-sm) 0;
 	
-	&:has(.brk-checkout-fee-item) {
+	&:has(.brk-ecommerce-checkout-fee-item) {
 		border-top: var(--border-thin) solid hsl(from var(--color-primary-900) h s l / 0.1);
 		border-bottom: var(--border-thin) solid hsl(from var(--color-primary-900) h s l / 0.1);
 	}
 }
 
-.brk-checkout-fee-item {
+.brk-ecommerce-checkout-fee-item {
 	width: 100%;
 	display: flex;
 	flex-direction: row;
@@ -91,18 +91,18 @@
 	}
 }
 
-.brk-checkout-total {
+.brk-ecommerce-checkout-total {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
 	align-items: center;
-	gap: var(--space-xs);
+	gap: var(--space-2xs);
 	background: var(--color-primary-300);
 	padding: var(--space-xs) var(--space-xl);
 	border-radius: calc(var(--radius-2xl) * 2);
 	
 	&-label {
-		font-size: var(--text-md);
+		font-size: var(--text-sm);
 		line-height: var(--leading-tight);
 		font-weight: var(--font-weight-semibold);
 		color: var(--color-primary-700);
@@ -117,7 +117,7 @@
 		flex-direction: column;
 		
 		strong, strong > span {
-			font-size: var(--text-2xl);
+			font-size: var(--text-xl);
 			line-height: var(--leading-tight);
 			font-weight: var(--font-weight-bold);
 			color: var(--color-primary-700);
@@ -129,7 +129,7 @@
 		}
 		
 		small {
-			font-size: var(--text-2xs);
+			font-size: var(--text-3xs);
 			font-weight: var(--font-weight-regular);
 			color: hsl(from var(--color-primary-700) h s l / 0.85);
 			text-align: right;
@@ -141,52 +141,19 @@
 			.amount {
 				font-weight: var(--font-weight-semibold);
 			}
+			
+			@container checkout-column (min-width: 30rem)  {
+				font-size: var(--text-2xs);
+			}
 		}
 	}
 }
 
-.brk-checkout-place-order {
-	display: flex;
-	flex-direction: column;
-	gap: 1.6rem;
-	
-	button[type=submit] {
-		font-size: var(--text-sm);	
-		margin-top: 0;
-		line-height: var(--leading-tight);
-		font-weight: var(--font-weight-bold);
-		color: var(--white);
-		background: var(--color-primary-700);
-		padding: var(--space-2xl) var(--space-xl);
-		text-transform: uppercase;
-		
-		border-radius: calc(var(--radius-2xl) * 2);
-		border: none;
-		cursor: pointer;
-		transition: background 300ms ease, opacity 300ms ease;
-		
-		@container checkout-column (min-width: 30rem) {
-			font-size: var(--text-md);	
-			padding: var(--space-2xl) var(--space-xl);
-		}
-		
-		&:hover {
-			// TODO
-			//background: var(--accent-hover);
-		}
-		
-		&:disabled {
-			opacity: 0.35;
-			cursor: not-allowed;
-		}
- 	}
+.brk-ecommerce-checkout-term-and-conditions {
 }
 
-.brk-checkout-term-and-conditions {
-}
-
-.brk-checkout-privacy-policy-text {
-	font-size: var(--text-xs);
+.brk-ecommerce-checkout-privacy-policy-text {
+	font-size: var(--text-2xs);
 	line-height: var(--leading-normal);
 	color: hsl(from var(--color-primary-700) h s l / 0.9);
 	
@@ -195,4 +162,35 @@
 		color: var(--color-primary-700);
 		text-decoration: underline;
 	}
+	
+	@container checkout-column (min-width: 30rem)  {
+		font-size: var(--text-xs);
+	}
+}
+
+.brk-ecommerce-checkout-place-order {
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-lg);
+	
+	&-button {
+		--button-border-radius: calc(var(--radius-2xl) * 2);
+		--button-padding-x: var(--space-xl);
+		--button-padding-y: var(--space-xl);
+		--button-text-size: var(--text-2xs);
+		
+		@container checkout-column (min-width: 23.75rem) {
+			& {
+				--button-text-size: var(--text-xs);
+			}
+		}
+		
+		@container checkout-column (min-width: 30rem) {
+			& {
+				--button-padding-x: var(--space-xl);
+				--button-padding-y: var(--space-2xl);
+				--button-text-size: var(--text-md);
+			}
+		}
+ 	}
 }

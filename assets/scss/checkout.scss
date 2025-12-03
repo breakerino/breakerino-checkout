@@ -1,6 +1,6 @@
 /*
-	id: breakerino-checkout
-	name: Breakerino Checkout
+	id: breakerino-ecommerce-checkout
+	name: Breakerino eCommerce | Checkout
 	type: style
 	conditions: is_checkout
 	version: 0.1.0
@@ -8,17 +8,11 @@
 	updated: 15/03/2025
 */
 
-// Partials
-@import "partials/css-variables.scss";
-@import "partials/woocommerce.scss";
-
-.brk-checkout {
+.brk-ecommerce-checkout {
 	// Components
 	@import "components/form-field";
 	@import "components/method";
 	@import "components/cart-item";
-	//@import "components/checkbox";
-	//@import "components/radio";
 	@import "components/loader";
 
 	// Templates

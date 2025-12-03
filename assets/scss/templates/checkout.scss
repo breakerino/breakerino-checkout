@@ -19,15 +19,20 @@
 	
 	container: checkout-wrapper / inline-size;
 	
-	@container checkout-container (min-width: 36rem) {
+	&-form {
+		width: 100%;
+		container: checkout-container / inline-size;
+	}
+	
+	@container checkout-container (min-width: 60rem) {
 		& {
-			--gap: var(--space-3xl); 
+			grid-template-columns: 4fr 3fr;
 		}
 	}
 	
-	@container checkout-container (min-width: 48rem) {
+	@container checkout-container (min-width: 64rem) {
 		& {
-			grid-template-columns: 4fr 3fr;
+			--gap: var(--space-3xl); 
 		}
 	}
 	

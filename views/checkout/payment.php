@@ -11,8 +11,8 @@ if ( empty($paymentMethods) || ! is_array($paymentMethods) ) {
 }
 ?>
 
-<div class="brk-checkout-methods brk-checkout-methods--payment" data-brk-checkout-type="payment">
+<div class="brk-ecommerce-checkout-methods brk-ecommerce-checkout-methods--payment" data-brk-ecommerce-checkout-type="payment">
 	<?php foreach ( $paymentMethods as $paymentMethod ): ?>
-		<?php Helpers::get_view( 'payment-method', ['paymentMethod' => $paymentMethod, 'isSelected' => false] ); ?>
+		<?php Helpers::get_view( 'checkout/payment-method', ['paymentMethod' => $paymentMethod, 'isSelected' => false] ); ?>
 	<?php endforeach; ?>
 </div>

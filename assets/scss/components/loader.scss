@@ -8,7 +8,7 @@
 	updated: 08/08/2025
 */
 
-.brk-checkout-loader {
+.brk-ecommerce-checkout-loader {
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -42,7 +42,7 @@
 	&--visible {
 		display: flex;
 		
-		.brk-checkout-loader__spinner::before {
+		.brk-ecommerce-checkout-loader__spinner::before {
 			content: '';
 		}
 	}

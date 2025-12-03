@@ -1,11 +1,11 @@
 /*
-	id: breakerino-checkout
-	name: Breakerino Checkout
+	id: breakerino-ecommerce-checkout
+	name: Breakerino eCommerce | Checkout
 	type: script
-	conditions: is_checkout
 	version: 0.1.0
-	created: 20/07/25
-	updated: 12/09/25
+	created: 20/07/2025
+	updated: 12/09/2025
+	conditions: is_checkout
 	dependencies: wc-checkout
 */
 
@@ -26,16 +26,16 @@ const BreakerinoCheckout = {
 	props: {
 		debug: false,
 		classes: {
-			wrapper: 'brk-checkout',
-			loader: 'brk-checkout-loader',
-			section: 'brk-checkout-section',
-			conditionalSection: 'brk-checkout-conditional-section',
-			fieldGroup: 'brk-checkout-form-field-group',
-			field: 'brk-checkout-form-field',
-			methods: 'brk-checkout-methods',
-			method: 'brk-checkout-method',
+			wrapper: 'brk-ecommerce-checkout',
+			loader: 'brk-ecommerce-checkout-loader',
+			section: 'brk-ecommerce-checkout-section',
+			conditionalSection: 'brk-ecommerce-checkout-conditional-section',
+			fieldGroup: 'brk-ecommerce-checkout-form-field-group',
+			field: 'brk-ecommerce-checkout-form-field',
+			methods: 'brk-ecommerce-checkout-methods',
+			method: 'brk-ecommerce-checkout-method',
 		},
-		dataPrefix: 'data-brk-checkout',
+		dataPrefix: 'data-brk-ecommerce-checkout',
 		breakpoints: {
 			mobile: 768,
 		},
@@ -1004,6 +1004,11 @@ const BreakerinoCheckout = {
 				this.setState('isLoading', false);
 				this.update();
 				this.bindEventHandlers();
+				
+				if (typeof BreakerinoButtons !== 'undefined') {
+					BreakerinoButtons.setElements();
+					BreakerinoButtons.bindButtonListeners();
+				}
 			}, 10);
 		});
 		

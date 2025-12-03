@@ -8,7 +8,7 @@
 	updated: 05/04/2025
 */
 
-.brk-checkout-conditional-section {
+.brk-ecommerce-checkout-conditional-section {
 	--border-radius: calc(var(--radius-2xl) * 1.5);
 	
 	display: flex;
@@ -73,13 +73,13 @@
 	}
 	
 	&--active {
-		.brk-checkout-conditional-section__header {
+		.brk-ecommerce-checkout-conditional-section__header {
 			--background: var(--color-primary-300);
 			
 			border-color: var(--color-primary-500);
 		}
 		
-		.brk-checkout-conditional-section__content {
+		.brk-ecommerce-checkout-conditional-section__content {
 			border-color: var(--color-primary-500);
 			display: block;
 		}

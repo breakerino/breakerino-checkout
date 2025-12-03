@@ -12,8 +12,8 @@ if (empty($shippingMethods) || ! is_array($shippingMethods)) {
 }
 ?>
 
-<div class="brk-checkout-methods brk-checkout-methods--shipping" data-brk-checkout-type="shipping">
+<div class="brk-ecommerce-checkout-methods brk-ecommerce-checkout-methods--shipping" data-brk-ecommerce-checkout-type="shipping">
 	<?php foreach ($shippingMethods as $shippingMethod): ?>
-		<?php Helpers::get_view('shipping-method', ['shippingMethod' => $shippingMethod, 'index' => $index, 'isSelected' => false]); ?>
+		<?php Helpers::get_view('checkout/shipping-method', ['shippingMethod' => $shippingMethod, 'index' => $index, 'isSelected' => false]); ?>
 	<?php endforeach; ?>
 </div>

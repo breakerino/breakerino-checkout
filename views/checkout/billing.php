@@ -10,15 +10,15 @@ $companyFields = WC()->checkout->get_checkout_fields( 'company' );
 $orderNoteFields = WC()->checkout->get_checkout_fields( 'order_note' );
 ?>
 
-<div class="brk-checkout-form-field-group" data-brk-checkout-id="billing">
+<div class="brk-ecommerce-checkout-form-field-group" data-brk-ecommerce-checkout-id="billing">
 	<?php foreach ($billingFields as $key => $field): ?>
-		<?php $field['custom_attributes']['data-brk-checkout-id'] = $key; ?>
-		<?php if ($field['required']): $field['custom_attributes']['data-brk-checkout-required'] = 'true'; endif; ?>
+		<?php $field['custom_attributes']['data-brk-ecommerce-checkout-id'] = $key; ?>
+		<?php if ($field['required']): $field['custom_attributes']['data-brk-ecommerce-checkout-required'] = 'true'; endif; ?>
 		<?php woocommerce_form_field($key, $field, WC()->checkout->get_value($key)); ?>
 	<?php endforeach; ?>
 </div>
 
-<?php Helpers::get_view('conditional-section', [
+<?php Helpers::get_view('checkout/conditional-section', [
 	'id' => 'shipping',
 	'id' => 'ship-to-different-address',
 	'input_id' => 'ship-to-different-address',
@@ -28,7 +28,7 @@ $orderNoteFields = WC()->checkout->get_checkout_fields( 'order_note' );
 	'fields' => $shippingFields
 ]); ?>
 
-<?php Helpers::get_view('conditional-section', [
+<?php Helpers::get_view('checkout/conditional-section', [
 	'id' => 'company',
 	'input_id' => 'purchase-for-company',
 	'input_name' => 'purchase_for_company',
@@ -38,7 +38,7 @@ $orderNoteFields = WC()->checkout->get_checkout_fields( 'order_note' );
 ]); ?>
 
 <?php
-// Helpers::get_view('conditional-section', [
+// Helpers::get_view('checkout/conditional-section', [
 // 	'id' => 'account',
 // 	'input_id' => 'create-an-account',
 // 	'input_name' => 'createaccount',
@@ -47,7 +47,7 @@ $orderNoteFields = WC()->checkout->get_checkout_fields( 'order_note' );
 // ]); 
 ?>
 
-<?php Helpers::get_view('conditional-section', [
+<?php Helpers::get_view('checkout/conditional-section', [
 	'id' => 'order-note',
 	'input_id' => 'add-order-note',
 	'input_name' => 'add-order-note',

@@ -6,8 +6,8 @@ if ( apply_filters( 'woocommerce_checkout_show_terms', true ) && function_exists
 	do_action( 'woocommerce_checkout_before_terms_and_conditions' );
 
 	?>
-	<div class="brk-checkout-term-and-conditions">
-		<div class="brk-checkout-privacy-policy-text">
+	<div class="brk-ecommerce-checkout-term-and-conditions">
+		<div class="brk-ecommerce-checkout-privacy-policy-text">
 			<?= wc_privacy_policy_text( 'checkout' ); ?>
 		</div>
 

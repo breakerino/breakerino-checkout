@@ -8,10 +8,14 @@
 	updated: 20/03/2025
 */
 
-.brk-checkout-methods {
+.brk-ecommerce-checkout-methods {
 	display: flex;
 	flex-direction: column;
-	gap: var(--space-md);
+	gap: var(--space-xs);
 	
 	container: methods-wrapper / inline-size;
+	
+	@container checkout-column (min-width: 30rem)  {
+		gap: var(--space-md);
+	}
 }

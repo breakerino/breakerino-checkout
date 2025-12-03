@@ -8,7 +8,7 @@
 	updated: 02/12/2025
 */
 
-.brk-checkout-form-field {
+.brk-ecommerce-checkout-form-field {
 	display: flex;
 	flex-direction: column;
 	gap: var(--space-2xs);
@@ -50,10 +50,10 @@
 		outline: none !important;
 		border: none !important;
 		
-		transition: border var(--transition-duration) var(--transition-timing-function);
+		transition: box-shadow var(--transition-duration) var(--transition-timing-function);
 		
 		&[aria-invalid=true] {
-			border: var(--border-regular) var(--color-danger) solid !important; 
+			box-shadow: 0 0 0 var(--border-regular) var(--color-danger);
 		}
 		
 		// TODO: Accesiblity

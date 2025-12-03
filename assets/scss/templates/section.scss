@@ -8,9 +8,12 @@
 	updated: 20/03/2025
 */
 
-.brk-checkout-section {
+.brk-ecommerce-checkout-section {
 	--padding: var(--space-lg); 
 	--gap: var(--space-lg);
+	
+	position: relative;
+	overflow: hidden;
 	
 	display: flex;
 	flex-direction: column;
@@ -72,11 +75,24 @@
 		gap: var(--gap);
 	}
 	
-	&--collapsed:not(.brk-checkout-section--valid) {
-		opacity: 0.35;
-		pointer-events: none;
-		user-select: none;
-		cursor: not-allowed;
+	&--collapsed:not(.brk-ecommerce-checkout-section--valid) {
+		&::before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			z-index: 5;
+			
+			width: 100%;
+			height: 100%;
+			
+			border-radius: inherit;
+			
+			background: hsl(from var(--color-primary-950) h s l / 0.65);
+			
+			user-select: none;
+			cursor: not-allowed;
+		}
 	}
 	
 	&:not(&--valid):not(&--collapsed) {
