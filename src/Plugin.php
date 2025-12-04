@@ -33,7 +33,7 @@ class Plugin extends PluginBase implements Constants {
 			[
 				'type'		=> 'filter',
 				'hooks'		=> ['wc_get_template'],
-				'callback' 	=> ['$this', 'handle_register_checkout_template'],
+				'callback' 	=> ['$this', 'handle_register_templates'],
 				'priority' 	=> 10,
 				'args'		=> 5
 			],
@@ -131,7 +131,7 @@ class Plugin extends PluginBase implements Constants {
 	 *
 	 * @return void
 	 */
-	public function handle_register_checkout_template($template, $templateName ) {
+	public function handle_register_templates($template, $templateName ) {
 		switch ($templateName) {
 			case 'checkout/form-checkout.php':
 				return $this->get_file_path('views/checkout/index.php');

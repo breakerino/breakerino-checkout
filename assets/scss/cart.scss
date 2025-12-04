@@ -8,6 +8,17 @@
 	updated: 15/03/2025
 */
 
+@import './components/organisms/table';
+
 .brk-ecommerce-cart {
+	&-table {
+		grid-template-columns: 
+			minmax(36rem, 1fr)
+			minmax(4rem, 1fr)
+			minmax(12rem, 1fr)
+			minmax(10rem, 1fr)
+			4rem;
+	}
 	
+	@import './components/molecules/cart-item';
 }

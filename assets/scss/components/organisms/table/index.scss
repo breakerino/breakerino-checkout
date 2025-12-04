@@ -1,0 +1,86 @@
+/*
+	id: table
+	name: Table
+	group: organisms
+	type: partial
+	version: 0.1.0
+	created: 04/12/2025
+	updated: 04/12/2025
+*/
+
+.brk-ecommerce-table {
+	--table-columns: 1; 
+	--table-column-gap: var(--space-xl); 
+	
+	--table-padding-x: var(--space-2xl);
+	--table-padding-y: var(--space-xl) ;
+	
+	--table-head-background: var(--color-primary-400);
+	--table-body-background: var(--color-primary-300);
+	--table-border-radius: var(--radius-xl);
+	
+	container: table / inline-size;
+	
+	display: grid;
+	grid-template-columns: repeat(var(--table-columns), 1fr);
+	column-gap: var(--table-column-gap);
+	border-radius: var(--table-border-radius);
+	overflow: hidden;
+
+	@for $i from 1 through 5 {
+		&[columns="#{$i}"] {
+			--table-columns: #{$i};
+		}
+	}
+
+	@for $i from 1 through 5 {
+		[colspan="#{$i}"] {
+			grid-column: span #{$i};
+		}
+	}
+
+	tbody,
+	thead,
+	tr {
+		display: grid;
+		grid-column: 1 / -1;
+		grid-template-columns: subgrid;
+	}
+
+	th,
+	td {
+		container: table-cell / inline-size;
+		
+		display: flex;
+		align-items: center;
+		
+		padding-inline: var(--table-padding-x);
+		padding-block: var(--table-padding-y);
+		
+		line-height: var(--leading-none);
+	}
+
+	thead {
+		background: var(--table-head-background);
+		border-bottom: var(--border-thin) hsl(from var(--color-primary-600) h s l / 0.25) solid;
+	}
+	
+	tbody {
+		background: var(--table-body-background);
+	}
+	
+	th, td {
+		color: var(--color-primary-600);
+		font-weight: var(--font-weight-regular);
+	}
+	
+	th {
+		font-family: var(--font-heading);
+		font-size: var(--text-lg);
+	}
+	
+	td {
+		font-family: var(--font-body);
+		font-size: var(--text-md);
+	}
+}

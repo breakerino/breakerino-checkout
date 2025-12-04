@@ -7,10 +7,26 @@ use Breakerino\Checkout\Helpers;
 $items = is_array($items) ? $items : [];
 ?>
 
-<?php do_action('woocommerce_review_order_before_cart_contents'); ?>
+<table class="brk-ecommerce-table brk-ecommerce-cart-table" columns="5">
+	<thead>
+		<th>
+			<span><?= __('Product', 'woocommerce'); ?></span>
+		</th>
+		<th>
+			<span><?= __('Price', 'woocommerce'); ?></span>
+		</th>
+		<th>
+			<span><?= __('Quantity', 'woocommerce'); ?></span>
+		</th>
+		<th>
+			<span><?= __('Subtotal', 'woocommerce'); ?></span>
+		</th>
+		<th>
+			<span class="screen-reader-text"><?= __('Remove item', 'woocommerce'); ?></span>
+		</th>
+	</thead>
 
-<?php if (! empty($items)): ?>	
-	<div class="brk-ecommerce-checkout-cart-items">
+	<tbody>
 		<?php foreach ($items as $itemKey => $item) :
 			$product = apply_filters('woocommerce_cart_item_product', $item['data'], $item, $itemKey);
 
@@ -22,12 +38,12 @@ $items = is_array($items) ? $items : [];
 			$name = apply_filters('woocommerce_cart_item_name', $product->get_name(), $item, $itemKey);
 			$quantity = apply_filters('woocommerce_cart_item_quantity', $item['quantity'], $item, $itemKey);
 			$subtotal = apply_filters('woocommerce_cart_item_subtotal', WC()->cart->get_product_subtotal($product, $item['quantity']), $item, $itemKey);
-			$price =  WC()->cart->get_product_subtotal($product, 1);
+			$price = WC()->cart->get_product_subtotal($product, 1);
 		?>
 			<?php Helpers::get_view(
-				'checkout/cart-item',
+				'cart/cart-item',
 				compact('itemKey', 'product', 'name', 'image', 'quantity', 'price', 'subtotal')
-				); ?>
+			); ?>
 		<?php endforeach; ?>
-	</div>
-<?php endif; ?>
+	</tbody>
+</table

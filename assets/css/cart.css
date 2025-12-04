@@ -1,3 +1,154 @@
 /* THIS FILE IS GENERATED AUTOMATICALLY, DO NOT MODIFY IT DIRECTLY, ANY DIRECT CHANGES WILL BE LOST */
-/* Last update: 2025-12-03T18:13:25+00:00 */
+/* Last update: 2025-12-04T18:10:57+00:00 */
 
+.brk-ecommerce-table {
+  --table-columns: 1;
+  --table-column-gap: var(--space-xl);
+  --table-padding-x: var(--space-2xl);
+  --table-padding-y: var(--space-xl) ;
+  --table-head-background: var(--color-primary-400);
+  --table-body-background: var(--color-primary-300);
+  --table-border-radius: var(--radius-xl);
+  container: table / inline-size;
+  display: grid;
+  grid-template-columns: repeat(var(--table-columns), 1fr);
+  column-gap: var(--table-column-gap);
+  border-radius: var(--table-border-radius);
+  overflow: hidden;
+}
+.brk-ecommerce-table[columns="1"] {
+  --table-columns: 1;
+}
+.brk-ecommerce-table[columns="2"] {
+  --table-columns: 2;
+}
+.brk-ecommerce-table[columns="3"] {
+  --table-columns: 3;
+}
+.brk-ecommerce-table[columns="4"] {
+  --table-columns: 4;
+}
+.brk-ecommerce-table[columns="5"] {
+  --table-columns: 5;
+}
+.brk-ecommerce-table [colspan="1"] {
+  grid-column: span 1;
+}
+.brk-ecommerce-table [colspan="2"] {
+  grid-column: span 2;
+}
+.brk-ecommerce-table [colspan="3"] {
+  grid-column: span 3;
+}
+.brk-ecommerce-table [colspan="4"] {
+  grid-column: span 4;
+}
+.brk-ecommerce-table [colspan="5"] {
+  grid-column: span 5;
+}
+.brk-ecommerce-table tbody, .brk-ecommerce-table thead, .brk-ecommerce-table tr {
+  display: grid;
+  grid-column: 1 / -1;
+  grid-template-columns: subgrid;
+}
+.brk-ecommerce-table th, .brk-ecommerce-table td {
+  container: table-cell / inline-size;
+  display: flex;
+  align-items: center;
+  padding-inline: var(--table-padding-x);
+  padding-block: var(--table-padding-y);
+  line-height: var(--leading-none);
+}
+.brk-ecommerce-table thead {
+  background: var(--table-head-background);
+  border-bottom: var(--border-thin) hsl(from var(--color-primary-600) h s l / 0.25) solid;
+}
+.brk-ecommerce-table tbody {
+  background: var(--table-body-background);
+}
+.brk-ecommerce-table th, .brk-ecommerce-table td {
+  color: var(--color-primary-600);
+  font-weight: var(--font-weight-regular);
+}
+.brk-ecommerce-table th {
+  font-family: var(--font-heading);
+  font-size: var(--text-lg);
+}
+.brk-ecommerce-table td {
+  font-family: var(--font-body);
+  font-size: var(--text-md);
+}
+.brk-ecommerce-cart {
+  
+}
+.brk-ecommerce-cart-table {
+  grid-template-columns: minmax(36rem, 1fr) minmax(4rem, 1fr) minmax(12rem, 1fr) minmax(10rem, 1fr) 4rem;
+}
+.brk-ecommerce-cart-item-info {
+  gap: var(--space-sm);
+}
+.brk-ecommerce-cart-item-image {
+  --image-size: 4rem;
+  position: relative;
+  flex: 0 0 var(--image-size);
+  width: var(--image-size);
+  height: var(--image-size);
+  border-radius: var(--radius-lg);
+  background-color: hsl(from var(--color-primary-800) h s l / 0.1);
+  border: var(--border-thin) solid var(--secondary-light);
+  padding: var(--space-2xs);
+}
+@container table-cell (min-width: 16rem) {
+  .brk-ecommerce-cart-item-image {
+    --image-size: 6rem;
+  }
+}
+.brk-ecommerce-cart-item-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+}
+.brk-ecommerce-cart-item-name {
+  font-family: var(--font-heading);
+  font-size: var(--text-lg);
+}
+.brk-ecommerce-cart-item-price, .brk-ecommerce-cart-item-price * {
+  font-size: var(--text-sm);
+  font-weight: var(--font-weight-medium);
+}
+.brk-ecommerce-cart-item-subtotal, .brk-ecommerce-cart-item-subtotal * {
+  font-size: var(--text-md);
+  font-weight: var(--font-weight-semibold);
+}
+.brk-ecommerce-cart-item-remove {
+  padding-left: 0 !important;
+}
+.brk-ecommerce-cart-item-remove__button {
+  --button-color: hsl(from var(--color-primary-700) h s l / 0.35);
+  --button-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: var(--button-size);
+  min-height: var(--button-size);
+  border: var(--border-thin) var(--button-color) solid;
+  border-radius: var(--radius-full);
+  background: transparent;
+  color: var(--button-color);
+  transition: var(--transition-all);
+}
+.brk-ecommerce-cart-item-remove__button:hover {
+  --button-color: hsl(from var(--color-primary-700) h s l / 0.75);
+}
+.brk-ecommerce-cart-item-remove__button span {
+  color: currentColor;
+}
+.brk-ecommerce-cart-item-remove__button svg {
+  width: calc(var(--button-size) * 0.6);
+  height: calc(var(--button-size) * 0.6);
+}
+.brk-ecommerce-cart-item-remove__button svg * {
+  fill: currentColor;
+  stroke: currentColor;
+}
