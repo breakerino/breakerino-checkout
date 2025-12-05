@@ -12,8 +12,11 @@
 	--table-columns: 1; 
 	--table-column-gap: var(--space-xl); 
 	
-	--table-padding-x: var(--space-2xl);
-	--table-padding-y: var(--space-xl) ;
+	--table-padding-x: var(--space-xl);
+	--table-padding-y: var(--space-md);
+	
+	--table-row-gap: 0;
+	--table-column-gap: var(--space-sm);
 	
 	--table-head-background: var(--color-primary-400);
 	--table-body-background: var(--color-primary-300);
@@ -45,6 +48,23 @@
 		display: grid;
 		grid-column: 1 / -1;
 		grid-template-columns: subgrid;
+		row-gap: var(--table-row-gap);
+		column-gap: var(--table-column-gap);
+	}
+	
+	tr {
+		padding-inline: var(--table-padding-x);
+		padding-block: var(--table-padding-y);
+		
+		border: none;
+	}
+	
+	tbody tr {
+		border-bottom: var(--border-thin) hsl(from var(--color-primary-600) h s l / 0.15) solid;
+		
+		tr:last-child {
+			border: none;
+		}
 	}
 
 	th,
@@ -54,10 +74,9 @@
 		display: flex;
 		align-items: center;
 		
-		padding-inline: var(--table-padding-x);
-		padding-block: var(--table-padding-y);
-		
 		line-height: var(--leading-none);
+		
+		padding: 0;
 	}
 
 	thead {
@@ -76,7 +95,7 @@
 	
 	th {
 		font-family: var(--font-heading);
-		font-size: var(--text-lg);
+		font-size: calc(var(--text-lg) / 1.2);
 	}
 	
 	td {

@@ -11,14 +11,44 @@
 @import './components/organisms/table';
 
 .brk-ecommerce-cart {
+	container: cart-wrapper / inline-size;
+	
+	display: grid;
+	gap: var(--space-3xl);
+	
+	@container (min-width: 64rem) {
+		grid-template-columns: 5fr 3fr;
+	}
+	
+	&__left,
+	&__right {
+		container: cart-column / inline-size;
+		height: fit-content;
+	}
+	
+	&__right {
+		position: sticky;
+		top: calc(var(--wp-admin--admin-bar--height, 0px) + var(--space-xl));
+		
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-xl);
+		background: var(--color-primary-400);
+		border-radius: var(--radius-xl);
+		padding: var(--space-xl);
+	}
+	
 	&-table {
+		--table-padding-x: var(--space-xl);
+		
 		grid-template-columns: 
-			minmax(36rem, 1fr)
-			minmax(4rem, 1fr)
-			minmax(12rem, 1fr)
-			minmax(10rem, 1fr)
-			4rem;
+			1fr 			/* Product */
+			5rem 			/* Price */
+			7.75rem		/* Quantity */
+			6rem			/* Subtotal */
+			3rem;			/* Remove */
 	}
 	
 	@import './components/molecules/cart-item';
+	@import './components/molecules/cart-subtotal';
 }

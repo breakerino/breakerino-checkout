@@ -46,4 +46,4 @@ $items = is_array($items) ? $items : [];
 			); ?>
 		<?php endforeach; ?>
 	</tbody>
-</table
+</table>

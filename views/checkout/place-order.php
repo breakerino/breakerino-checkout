@@ -4,12 +4,12 @@ defined('ABSPATH') || exit;
 use Breakerino\Checkout\Helpers;
 
 $placeOrderText = apply_filters(
-	'breakerino/checkout/place_order_button/text',
-	apply_filters('woocommerce_order_button_text', __('Place order', 'woocommerce'))
+	'breakerino/ecommerce/checkout/place_order_button/text',
+	__('Place order', 'woocommerce')
 );
 
 $placeOrderIcon = apply_filters(
-	'breakerino/checkout/place_order_button/icon',
+	'breakerino/ecommerce/checkout/place_order_button/icon',
 	null,
 );
 ?>

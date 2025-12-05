@@ -12,7 +12,7 @@
 	background: var(--color-primary-400);
 	gap: var(--space-xl);
 	position: sticky;
-	top: calc(var(--wp-admin--admin-bar--height, 0) + var(--space-3xl));
+	top: calc(var(--wp-admin--admin-bar--height, 0px) + var(--space-3xl));
 }
 
 .brk-ecommerce-checkout-cart-items {

@@ -1,5 +1,5 @@
 /* THIS FILE IS GENERATED AUTOMATICALLY, DO NOT MODIFY IT DIRECTLY, ANY DIRECT CHANGES WILL BE LOST */
-/* Last update: 2025-12-04T18:10:57+00:00 */
+/* Last update: 2025-12-05T18:21:51+00:00 */
 
 .brk-ecommerce-checkout {
   
@@ -356,14 +356,14 @@
 }
 .brk-ecommerce-checkout-form {
   width: 100%;
-  container: checkout-container / inline-size;
+  container: checkout-form / inline-size;
 }
-@container checkout-container (min-width: 60rem) {
+@container checkout-form (min-width: 60rem) {
   .brk-ecommerce-checkout {
     grid-template-columns: 4fr 3fr;
   }
 }
-@container checkout-container (min-width: 64rem) {
+@container checkout-form (min-width: 64rem) {
   .brk-ecommerce-checkout {
     --gap: var(--space-3xl);
   }
@@ -529,7 +529,7 @@
   background: var(--color-primary-400);
   gap: var(--space-xl);
   position: sticky;
-  top: calc(var(--wp-admin--admin-bar--height, 0) + var(--space-3xl));
+  top: calc(var(--wp-admin--admin-bar--height, 0px) + var(--space-3xl));
 }
 .brk-ecommerce-checkout .brk-ecommerce-checkout-cart-items {
   display: flex;

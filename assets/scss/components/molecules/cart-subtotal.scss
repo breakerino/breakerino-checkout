@@ -1,0 +1,67 @@
+/*
+	id: cart-subtotal
+	name: Cart subtotal
+	group: organisms
+	type: partial
+	version: 0.1.0
+	created: 05/12/2025
+	updated: 05/12/2025
+*/
+
+&-subtotal {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	gap: var(--space-2xs);
+	background: var(--color-primary-300);
+	padding: var(--space-xs) var(--space-xl);
+	border-radius: calc(var(--radius-2xl) * 2);
+	
+	&-label {
+		font-size: var(--text-sm);
+		line-height: var(--leading-tight);
+		font-weight: var(--font-weight-semibold);
+		color: var(--color-primary-700);
+		
+		@container cart-column (min-width: 24rem)  {
+			font-size: calc(var(--text-sm) * 1.25);
+		}
+	}
+	
+	&-value {
+		display: flex;
+		flex-direction: column;
+		
+		strong, strong > span {
+			font-size: var(--text-xl);
+			line-height: var(--leading-tight);
+			font-weight: var(--font-weight-bold);
+			color: var(--color-primary-700);
+			text-align: right;
+			
+			@container cart-column (min-width: 24rem)  {
+				font-size: calc(var(--text-xl) * 1.15);
+			}
+		}
+		
+		small {
+			font-size: var(--text-3xs);
+			font-weight: var(--font-weight-regular);
+			color: hsl(from var(--color-primary-700) h s l / 0.85);
+			text-align: right;
+			
+			& > span {
+				font-weight: var(--font-weight-regular);
+			}
+			
+			.amount {
+				font-weight: var(--font-weight-semibold);
+			}
+			
+			@container cart-column (min-width: 24rem)  {
+				font-size: var(--text-2xs);
+			}
+		}
+	}
+}

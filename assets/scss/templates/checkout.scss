@@ -21,16 +21,16 @@
 	
 	&-form {
 		width: 100%;
-		container: checkout-container / inline-size;
+		container: checkout-form / inline-size;
 	}
 	
-	@container checkout-container (min-width: 60rem) {
+	@container checkout-form (min-width: 60rem) {
 		& {
 			grid-template-columns: 4fr 3fr;
 		}
 	}
 	
-	@container checkout-container (min-width: 64rem) {
+	@container checkout-form (min-width: 64rem) {
 		& {
 			--gap: var(--space-3xl); 
 		}

@@ -3,7 +3,7 @@
 
 form.woocommerce-checkout {
   width: 100%;
-  container: checkout-container / inline-size;
+  container: checkout-form / inline-size;
 }
 .brk-ecommerce-checkout {
   
@@ -358,12 +358,12 @@ form.woocommerce-checkout {
   position: relative;
   container: checkout-wrapper / inline-size;
 }
-@container checkout-container (min-width: 60rem) {
+@container checkout-form (min-width: 60rem) {
   .brk-ecommerce-checkout {
     grid-template-columns: 4fr 3fr;
   }
 }
-@container checkout-container (min-width: 64rem) {
+@container checkout-form (min-width: 64rem) {
   .brk-ecommerce-checkout {
     --gap: var(--space-3xl);
   }
