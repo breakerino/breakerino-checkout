@@ -1,0 +1,217 @@
+/*
+	id: breakerino-ecommerce-thank-you
+	name: Breakerino eCommerce | Thank you
+	type: style
+	conditions: is_order_received_page
+	version: 0.1.0
+	created: 08/12/2025
+	updated: 08/12/2025
+*/
+
+.brk-ecommerce-thankyou {
+	--padding: var(--space-xl); 
+	--gap: var(--space-xl);
+	
+	container: checkout-column / inline-size;
+	
+	display: flex;
+	flex-direction: column;
+	gap: var(--gap);
+	
+	@container section (min-width: 62rem) {
+		& {
+			--padding: var(--space-2xl);
+		}
+	}
+	
+	&-completion-notice {
+		width: 100%;
+		
+		display: flex;
+		align-items: center;
+		flex-direction: column;
+		gap: var(--space-md);
+		
+		padding: var(--padding);
+		border-radius: var(--radius-xl);
+		
+		background: var(--color-primary-400);
+		
+		animation: brk-glow-pulse 2s infinite ease-in-out;
+		
+		@container checkout-column (min-width: 36rem) {
+			flex-direction: row;
+		}
+		
+		&__icon {
+			--icon-size: 3.5rem;
+			
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			
+			flex: 0 0 var(--icon-size);
+		
+			width: var(--icon-size);
+			height: var(--icon-size);
+			
+			padding: var(--space-2xs);
+			border-radius: var(--radius-full);
+			
+			background: var(--color-primary-600);
+			
+			@container checkout-column (min-width: 36rem) {
+				--icon-size: 4rem;
+			}
+			
+			svg {
+				width: calc(var(--icon-size) * 0.5625);
+				height: calc(var(--icon-size) * 0.5625);
+			}
+		}
+		
+		&__content {
+			display: flex;
+			flex-direction: column;
+			gap: var(--space-2xs);
+			
+			text-align: center;
+			
+			@container checkout-column (min-width: 36rem) {
+				gap: var(--space-3xs);
+				text-align: left;
+			}
+		}
+		
+		&__title {
+			font-size: var(--text-lg);
+			color: var(--color-primary-600);
+			line-height: var(--leading-snug);
+		}
+		
+		&__subtitle {
+			color: hsl(from var(--color-primary-600) h s l / 0.85);
+			line-height: var(--leading-comfort);
+		}
+	}	
+	
+	&-order-info-boxes {
+		display: grid;
+		gap: var(--gap);
+		
+		@container checkout-column (min-width: 36rem) {
+			grid-template-columns: repeat(2, 1fr);
+		}
+		
+		@container checkout-column (min-width: 75rem) {
+			grid-template-columns: repeat(4, 1fr);
+		}
+	}
+	
+	&-order-info-box {
+		display: flex;
+		align-items: center;
+		gap: var(--space-xs);
+		
+		padding: var(--padding);
+		border-radius: var(--radius-xl);
+		
+		background: var(--color-primary-400);
+		
+		&__icon {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			
+			width: 3rem;
+			height: 3rem;
+			
+			padding: var(--space-2xs);
+			border-radius: var(--radius-full);
+			
+			background: var(--color-primary-600);
+			
+			svg {
+				width: 1.5rem;
+				height: 1.5rem;
+			}
+		}
+		
+		&__content {
+			display: flex;
+			flex-direction: column;
+			gap: var(--space-3xs);
+		}
+		
+		&__title {
+			color: var(--color-primary-600);
+			line-height: var(--leading-normal);
+		}
+		
+		&__subtitle {
+			color: var(--color-primary-600);
+			line-height: var(--leading-normal);
+		}
+	}
+	
+	&-order-summary {
+		padding: var(--padding);
+		border-radius: var(--radius-xl);
+		
+		background: var(--color-primary-400);
+	}
+	
+	&-order-addresses {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+		gap: var(--gap);
+	}
+	
+	&-order-address {
+		display: flex;
+		flex-direction: column;
+		gap: var(--space-md);
+		
+		padding: var(--padding);
+		border-radius: var(--radius-xl);
+		
+		background: var(--color-primary-400);
+		
+		&__header {
+			display: flex;
+			align-items: center;
+			gap: var(--space-xs);
+		}
+		
+		&__icon {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			
+			width: 3rem;
+			height: 3rem;
+			
+			padding: var(--space-2xs);
+			border-radius: var(--radius-full);
+			
+			background: var(--color-primary-600);
+			
+			svg {
+				width: 1.5rem;
+				height: 1.5rem;
+			}
+		}
+		
+		&__title {
+			color: var(--color-primary-600);
+			font-weight: var(--font-weight-medium);
+			font-size: calc(var(--text-md) * 1.1);
+		}
+		
+		&__content {
+			.mt-text {
+				--text-color: var(--color-primary-600);
+			}
+		}
+	}
+}

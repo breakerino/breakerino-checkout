@@ -1,0 +1,166 @@
+/* THIS FILE IS GENERATED AUTOMATICALLY, DO NOT MODIFY IT DIRECTLY, ANY DIRECT CHANGES WILL BE LOST */
+/* Last update: 2025-12-08T19:17:09+00:00 */
+
+.brk-ecommerce-thankyou {
+  --padding: var(--space-xl);
+  --gap: var(--space-xl);
+  container: checkout-column / inline-size;
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap);
+}
+@container section (min-width: 62rem) {
+  .brk-ecommerce-thankyou {
+    --padding: var(--space-2xl);
+  }
+}
+.brk-ecommerce-thankyou-completion-notice {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: var(--space-md);
+  padding: var(--padding);
+  border-radius: var(--radius-xl);
+  background: var(--color-primary-400);
+  animation: brk-glow-pulse 2s infinite ease-in-out;
+}
+@container checkout-column (min-width: 36rem) {
+  .brk-ecommerce-thankyou-completion-notice {
+    flex-direction: row;
+  }
+}
+.brk-ecommerce-thankyou-completion-notice__icon {
+  --icon-size: 3.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 var(--icon-size);
+  width: var(--icon-size);
+  height: var(--icon-size);
+  padding: var(--space-2xs);
+  border-radius: var(--radius-full);
+  background: var(--color-primary-600);
+}
+@container checkout-column (min-width: 36rem) {
+  --icon-size: 4rem;
+}
+.brk-ecommerce-thankyou-completion-notice__icon svg {
+  width: calc(var(--icon-size) * 0.5625);
+  height: calc(var(--icon-size) * 0.5625);
+}
+.brk-ecommerce-thankyou-completion-notice__content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2xs);
+  text-align: center;
+}
+@container checkout-column (min-width: 36rem) {
+  .brk-ecommerce-thankyou-completion-notice__content {
+    gap: var(--space-3xs);
+    text-align: left;
+  }
+}
+.brk-ecommerce-thankyou-completion-notice__title {
+  font-size: var(--text-lg);
+  color: var(--color-primary-600);
+  line-height: var(--leading-snug);
+}
+.brk-ecommerce-thankyou-completion-notice__subtitle {
+  color: hsl(from var(--color-primary-600) h s l / 0.85);
+  line-height: var(--leading-comfort);
+}
+.brk-ecommerce-thankyou-order-info-boxes {
+  display: grid;
+  gap: var(--gap);
+}
+@container checkout-column (min-width: 36rem) {
+  .brk-ecommerce-thankyou-order-info-boxes {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@container checkout-column (min-width: 75rem) {
+  .brk-ecommerce-thankyou-order-info-boxes {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+.brk-ecommerce-thankyou-order-info-box {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: var(--padding);
+  border-radius: var(--radius-xl);
+  background: var(--color-primary-400);
+}
+.brk-ecommerce-thankyou-order-info-box__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  padding: var(--space-2xs);
+  border-radius: var(--radius-full);
+  background: var(--color-primary-600);
+}
+.brk-ecommerce-thankyou-order-info-box__icon svg {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+.brk-ecommerce-thankyou-order-info-box__content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3xs);
+}
+.brk-ecommerce-thankyou-order-info-box__title {
+  color: var(--color-primary-600);
+  line-height: var(--leading-normal);
+}
+.brk-ecommerce-thankyou-order-info-box__subtitle {
+  color: var(--color-primary-600);
+  line-height: var(--leading-normal);
+}
+.brk-ecommerce-thankyou-order-summary {
+  padding: var(--padding);
+  border-radius: var(--radius-xl);
+  background: var(--color-primary-400);
+}
+.brk-ecommerce-thankyou-order-addresses {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+  gap: var(--gap);
+}
+.brk-ecommerce-thankyou-order-address {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  padding: var(--padding);
+  border-radius: var(--radius-xl);
+  background: var(--color-primary-400);
+}
+.brk-ecommerce-thankyou-order-address__header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+}
+.brk-ecommerce-thankyou-order-address__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  padding: var(--space-2xs);
+  border-radius: var(--radius-full);
+  background: var(--color-primary-600);
+}
+.brk-ecommerce-thankyou-order-address__icon svg {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+.brk-ecommerce-thankyou-order-address__title {
+  color: var(--color-primary-600);
+  font-weight: var(--font-weight-medium);
+  font-size: calc(var(--text-md) * 1.1);
+}
+.brk-ecommerce-thankyou-order-address__content .mt-text {
+  --text-color: var(--color-primary-600);
+}

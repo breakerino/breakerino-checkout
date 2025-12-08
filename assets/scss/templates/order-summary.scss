@@ -55,7 +55,6 @@
 	}
 }
 
-// TODO
 .brk-ecommerce-checkout-fees {
 	display: flex;
 	flex-direction: column;
@@ -77,9 +76,9 @@
 	gap: var(--space-xs);
 	
 	&-label {
-		font-size: var(--text-sm);
+		font-size: var(--text-xs);
 		line-height: var(--leading-tight);
-		font-weight: var(--font-weight-medium);
+		font-weight: var(--font-weight-semibold);
 		color: var(--color-primary-700);	
 	}
 	
@@ -107,6 +106,10 @@
 		font-weight: var(--font-weight-semibold);
 		color: var(--color-primary-700);
 		
+		@container checkout-column (min-width: 24rem)  {
+			font-size: var(--text-md);
+		}
+		
 		@container checkout-column (min-width: 30rem)  {
 			font-size: var(--text-lg);
 		}
@@ -115,13 +118,18 @@
 	&-value {
 		display: flex;
 		flex-direction: column;
+		align-items: end;
 		
 		strong, strong > span {
-			font-size: var(--text-xl);
+			font-size: var(--text-md);
 			line-height: var(--leading-tight);
 			font-weight: var(--font-weight-bold);
 			color: var(--color-primary-700);
 			text-align: right;
+			
+			@container checkout-column (min-width: 24rem)  {
+				font-size: var(--text-xl);
+			}
 			
 			@container checkout-column (min-width: 30rem)  {
 				font-size: var(--text-2xl);
@@ -133,6 +141,13 @@
 			font-weight: var(--font-weight-regular);
 			color: hsl(from var(--color-primary-700) h s l / 0.85);
 			text-align: right;
+			max-width: 6rem;
+			
+			@container checkout-column (min-width: 20rem)  {
+				& {
+					max-width: unset;
+				}
+			}
 			
 			& > span {
 				font-weight: var(--font-weight-regular);
@@ -142,7 +157,7 @@
 				font-weight: var(--font-weight-semibold);
 			}
 			
-			@container checkout-column (min-width: 30rem)  {
+			@container checkout-column (min-width: 24rem)  {
 				font-size: var(--text-2xs);
 			}
 		}

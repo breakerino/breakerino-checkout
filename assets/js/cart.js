@@ -3,10 +3,10 @@
 	name: Breakerino eCommerce | Cart
 	type: script
 	version: 0.1.0
-	created: 20/07/2025
-	updated: 12/09/2025
-	conditions: cart
-	dependencies: wc-cart
+	created: 07/12/2025
+	updated: 07/12/2025
+	conditions: is_cart
+	dependencies: vendor-wc-cart
 */
 
 // @ts-nocheck
@@ -187,10 +187,8 @@ function BreakerinoCart({ selectors, updateCartDelay, onCartUpdate: handleCartUp
 						break;
 					default:
 						console.log('update', item);
-						//document.querySelector('[name="update_cart"]')?.removeAttribute('disabled');
-						//document.querySelector('[name="update_cart"]')?.removeAttribute('aria-disabled');
-
-						//jQuery('[name="update_cart"]').trigger('click');
+						document.querySelector('[name="update_cart"]')?.removeAttribute('disabled');
+						jQuery(document.body).trigger('wc_update_cart');
 						break;
 				}
 			} catch (e) {

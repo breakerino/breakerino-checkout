@@ -15,6 +15,7 @@ namespace Breakerino\Checkout;
 defined('ABSPATH') || exit;
 
 use Breakerino\Core\Abstracts\Plugin as PluginBase;
+use Breakerino\Checkout\Vendor\WooCommerce\FrontendScripts;
 
 class Plugin extends PluginBase implements Constants {
 	public const PLUGIN_ID         	= 'breakerino-checkout';
@@ -36,6 +37,20 @@ class Plugin extends PluginBase implements Constants {
 				'callback' 	=> ['$this', 'handle_register_templates'],
 				'priority' 	=> 10,
 				'args'		=> 5
+			],
+			[
+				'type'		=> 'filter',
+				'hooks'		=> ['wp_enqueue_scripts'],
+				'callback' 	=> ['$this', 'handle_remove_native_wc_scripts'],
+				'priority' 	=> 10,
+				'args'		=> 0
+			],
+			[
+				'type'		=> 'filter',
+				'hooks'		=> ['wp_print_scripts'],
+				'callback' 	=> ['$this', 'handle_localize_wc_scripts'],
+				'priority' 	=> 5,
+				'args'		=> 0
 			],
 			[
 				'type'		=> 'action',
@@ -133,13 +148,38 @@ class Plugin extends PluginBase implements Constants {
 	 */
 	public function handle_register_templates($template, $templateName ) {
 		switch ($templateName) {
-			case 'checkout/form-checkout.php':
-				return $this->get_file_path('views/checkout/index.php');
 			case 'cart/cart.php':
 				return $this->get_file_path('views/cart/index.php');
+			case 'checkout/form-checkout.php':
+				return $this->get_file_path('views/checkout/index.php');
+			case 'checkout/thankyou.php':
+				return $this->get_file_path('views/thankyou/index.php');
 		}
 		
 		return $template;
+	}
+	
+	public function handle_remove_native_wc_scripts() {
+		wp_deregister_script( 'wc-cart' );
+		wp_dequeue_script( 'wc-cart' );
+
+		wp_dequeue_script( 'wc-cart-fragments' );
+		wp_deregister_script( 'wc-cart-fragments' );
+
+		wp_dequeue_script( 'wc-add-to-cart' );
+		wp_deregister_script( 'wc-add-to-cart' );
+		
+		wp_dequeue_script( 'wc-checkout' );
+		wp_deregister_script( 'wc-checkout' );
+
+		wp_dequeue_script( 'wc-add-to-cart' );
+		wp_deregister_script( 'wc-add-to-cart' );
+	}
+	
+	public function handle_localize_wc_scripts() {
+		foreach ( ['wc-cart', 'wc-checkout'] as $handle ) {
+			FrontendScripts::localize_script( $handle );
+		}
 	}
 	
 	/**
@@ -158,11 +198,9 @@ class Plugin extends PluginBase implements Constants {
 	 * @return array 
 	 */
 	public function handle_adjust_supported_assets_conditions($conditions) {
-		$conditions = array_unique(
-			array_merge($conditions, ['is_cart', 'is_checkout'])
+		return array_unique(
+			array_merge($conditions, ['is_cart', 'is_checkout', 'is_order_received_page'])
 		);
-		
-		return $conditions;
 	}
 	
 	/**

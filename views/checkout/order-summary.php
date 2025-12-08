@@ -7,6 +7,8 @@ use Breakerino\Checkout\Helpers;
 $cartFees = Helpers::get_cart_fees();
 $cartItems = Helpers::get_cart_items();
 
+do_action('woocommerce_review_order_before_cart_contents');
+
 // Cart items
 Helpers::get_view('checkout/cart-items', ['items' => $cartItems]);
 

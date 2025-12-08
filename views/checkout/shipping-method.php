@@ -19,7 +19,7 @@ $afterContent = Helpers::get_after_shipping_rate_content($shippingMethod, $index
 		</div>
 
 		<div class="brk-ecommerce-checkout-method__price">
-			<?= wc_price($shippingMethod->get_cost()); ?>
+			<?= !empty($shippingMethod->get_cost()) ? wc_price($shippingMethod->get_cost()) : sprintf('<span>%s</span>', __('Free', 'woocommerce')); ?>
 		</div>
 	</div>
 	<?php if (! empty($afterContent)): ?>

@@ -9,8 +9,8 @@
 */
 
 .brk-ecommerce-checkout-section {
-	--padding: var(--space-lg); 
-	--gap: var(--space-lg);
+	--padding: var(--space-xl); 
+	--gap: var(--space-xl);
 	
 	position: relative;
 	overflow: hidden;
@@ -23,16 +23,9 @@
 	background: var(--color-primary-400);
 	transition: var(--transition-all);	
 	
-	@container checkout-wrapper (min-width: 48rem) {
+	@container (min-width: 62rem) {
 		& {
-			--padding: var(--space-2xl); 
-			--gap: var(--space-xl);
-		}
-	}
-	
-	@container checkout-wrapper (min-width: 62rem) {
-		& {
-			--padding: var(--space-3xl);
+			--padding: var(--space-2xl);
 		}
 	}
 	

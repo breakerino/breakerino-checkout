@@ -1,0 +1,63 @@
+/*
+	id: notices
+	name: Notices
+	group: organisms
+	type: partial
+	version: 0.1.0
+	created: 08/12/2025
+	updated: 08/12/2025
+*/
+
+.woocommerce-notices-wrapper {
+	&:not(:has(*)) {
+		display: none;
+	}
+}
+
+.woocommerce-info,
+.woocommerce-message,
+.woocommerce-error {
+	&:is(.woocommerce-message, .woocommerce-info) {
+		--notice-text-color: var(--color-primary-600);
+		--notice-background: var(--color-primary-300);
+	}
+	
+	&:is(.woocommerce-error) {
+		--notice-text-color: var(--color-danger);
+		--notice-background: hsl(from var(--color-danger) h calc(s - 25) calc(l + 50) );
+	}
+
+	padding: var(--space-sm);
+	color: var(--notice-text-color);
+	background: var(--notice-background);
+	border-radius: var(--radius-md);
+	font-size: var(--text-sm);
+	
+	&:focus-visible {
+		outline: none;
+	}
+	
+	.button, .restore-item {
+		--button-text-color: var(--color-primary-600);
+		--button-border-color: var(--color-primary-600);
+		--button-background: transparent;
+		
+		width: fit-content;
+		min-height: unset;
+		border-radius: var(--radius-2xl);
+		font-size: var(--text-xs);
+		font-weight: var(--font-weight-semibold);
+		text-transform: uppercase;
+		color: var(--button-text-color);
+		line-height: var(--leading-snug);
+		background: var(--button-background);
+		border: var(--border-thin) var(--button-border-color) solid;
+		padding: var(--space-2xs) var(--space-sm);
+		transition: var(--transition-all);
+		
+		&:hover {
+			--button-background: var(--color-primary-600);
+			--button-text-color: var(--color-white);
+		}
+	}
+}

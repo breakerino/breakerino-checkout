@@ -11,8 +11,8 @@ $formClasses  = ['brk-ecommerce-checkout-form', 'woocommerce-checkout', 'checkou
 
 <form name="checkout" method="post" action="<?= esc_url(wc_get_checkout_url()); ?>" enctype="multipart/form-data" class="brk-ecommerce-checkout-form woocommerce-checkout checkout" data-brk-ecommerce-checkout-form  aria-label="<?= esc_attr__('Checkout', 'woocommerce'); ?>">
 	<div class="brk-ecommerce-checkout">
-		<div class="brk-ecommerce-checkout-loader brk-ecommerce-checkout-loader--visible">
-			<span class="brk-ecommerce-checkout-loader__spinner"></span>
+		<div class="brk-ecommerce-loader brk-ecommerce-loader--visible">
+			<span class="brk-ecommerce-loader__spinner"></span>
 		</div>
 
 		<div class="brk-ecommerce-checkout__left">

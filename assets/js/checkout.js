@@ -6,7 +6,7 @@
 	created: 20/07/2025
 	updated: 12/09/2025
 	conditions: is_checkout
-	dependencies: wc-checkout
+	dependencies: vendor-wc-checkout
 */
 
 // @ts-nocheck
@@ -27,7 +27,7 @@ const BreakerinoCheckout = {
 		debug: false,
 		classes: {
 			wrapper: 'brk-ecommerce-checkout',
-			loader: 'brk-ecommerce-checkout-loader',
+			loader: 'brk-ecommerce-loader',
 			section: 'brk-ecommerce-checkout-section',
 			conditionalSection: 'brk-ecommerce-checkout-conditional-section',
 			fieldGroup: 'brk-ecommerce-checkout-form-field-group',

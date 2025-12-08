@@ -20,7 +20,7 @@ $paymentMethod->cost = apply_filters(sprintf('breakerino/checkout/payment_method
 		</div>
 
 		<div class="brk-ecommerce-checkout-method__price">
-			<?= wc_price($paymentMethod->cost); ?>
+			<?= !empty($paymentMethod->cost) ? sprintf('%s', wc_price($paymentMethod->cost)) : sprintf('<span>%s</span>', __('Free', 'woocommerce')); ?>
 		</div>
 	</div>
 	<?php if ($paymentMethod->has_fields() || $paymentMethod->get_description()) : ?>

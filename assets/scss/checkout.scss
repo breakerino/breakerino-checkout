@@ -8,18 +8,23 @@
 	updated: 15/03/2025
 */
 
+// Components
+@import './components/loader';
+@import './components/molecules/notices';
+@import './components/cart-item';
+
+// Templates
+@import './templates/section';
+@import './templates/field-group';
+@import './templates/conditional-section';
+@import './templates/methods';
+@import './templates/order-summary';
+
 .brk-ecommerce-checkout {
 	// Components
-	@import "components/form-field";
-	@import "components/method";
-	@import "components/cart-item";
-	@import "components/loader";
+	@import './components/form-field';
+	@import './components/method';
 
 	// Templates
-	@import "templates/checkout";
-	@import "templates/section";
-	@import "templates/field-group";
-	@import "templates/conditional-section";
-	@import "templates/methods";
-	@import "templates/order-summary";
+	@import './templates/checkout';
 }

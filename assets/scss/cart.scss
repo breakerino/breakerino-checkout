@@ -8,15 +8,18 @@
 	updated: 15/03/2025
 */
 
+@import './components/loader';
+@import './components/molecules/notices';
 @import './components/organisms/table';
 
 .brk-ecommerce-cart {
 	container: cart-wrapper / inline-size;
 	
 	display: grid;
-	gap: var(--space-3xl);
+	gap: var(--space-xl);
 	
 	@container (min-width: 64rem) {
+		gap: var(--space-3xl);
 		grid-template-columns: 5fr 3fr;
 	}
 	
@@ -40,13 +43,40 @@
 	
 	&-table {
 		--table-padding-x: var(--space-xl);
+		--table-row-gap: var(--space-sm);
 		
-		grid-template-columns: 
-			1fr 			/* Product */
-			5rem 			/* Price */
-			7.75rem		/* Quantity */
-			6rem			/* Subtotal */
-			3rem;			/* Remove */
+		tr {
+			grid-template-columns: initial;
+			
+			grid-template-areas:
+				'cart-item-info cart-item-info'
+				'cart-item-price cart-item-subtotal'
+				'cart-item-quantity cart-item-remove'
+				;
+		}
+		
+		thead {
+			display: none
+		}
+		
+		@container cart-column (min-width: 40rem) {
+			&, tr {
+				--table-row-gap: 0;
+				
+				grid-template: initial;
+				
+				grid-template-columns: 
+					1fr 			/* Product */
+					4.5rem 		/* Price */
+					7.75rem		/* Quantity */
+					6rem			/* Subtotal */
+					3rem;			/* Remove */
+			}
+			
+			thead {
+				display: grid;
+			}
+		}
 	}
 	
 	@import './components/molecules/cart-item';

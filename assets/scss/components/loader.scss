@@ -1,6 +1,6 @@
 /*
-	id: breakerino-checkout-loader
-	name: Breakerino Checkout | Loader
+	id: breakerino-ecommerce-loader
+	name: Breakerino eCommerce | Loader
 	group: components
 	type: partial
 	version: 0.4.0
@@ -8,7 +8,7 @@
 	updated: 08/08/2025
 */
 
-.brk-ecommerce-checkout-loader {
+.brk-ecommerce-loader {
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -42,7 +42,7 @@
 	&--visible {
 		display: flex;
 		
-		.brk-ecommerce-checkout-loader__spinner::before {
+		.brk-ecommerce-loader__spinner::before {
 			content: '';
 		}
 	}
