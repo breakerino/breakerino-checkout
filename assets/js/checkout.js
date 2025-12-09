@@ -5,7 +5,7 @@
 	version: 0.1.0
 	created: 20/07/2025
 	updated: 12/09/2025
-	conditions: is_checkout
+	conditions: is_checkout, !is_order_received_page
 	dependencies: vendor-wc-checkout
 */
 

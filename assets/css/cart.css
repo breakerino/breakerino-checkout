@@ -1,5 +1,5 @@
 /* THIS FILE IS GENERATED AUTOMATICALLY, DO NOT MODIFY IT DIRECTLY, ANY DIRECT CHANGES WILL BE LOST */
-/* Last update: 2025-12-08T19:17:09+00:00 */
+/* Last update: 2025-12-09T14:07:15+00:00 */
 
 .brk-ecommerce-loader {
   position: fixed;
@@ -47,6 +47,11 @@
 .woocommerce-info:is(.woocommerce-message, .woocommerce-info), .woocommerce-message:is(.woocommerce-message, .woocommerce-info), .woocommerce-error:is(.woocommerce-message, .woocommerce-info) {
   --notice-text-color: var(--color-primary-600);
   --notice-background: var(--color-primary-300);
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+}
+.woocommerce-info:is(.woocommerce-message, .woocommerce-info) a, .woocommerce-message:is(.woocommerce-message, .woocommerce-info) a, .woocommerce-error:is(.woocommerce-message, .woocommerce-info) a {
+  margin-left: 0;
 }
 .woocommerce-info:is(.woocommerce-error), .woocommerce-message:is(.woocommerce-error), .woocommerce-error:is(.woocommerce-error) {
   --notice-text-color: var(--color-danger);

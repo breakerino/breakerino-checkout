@@ -23,7 +23,7 @@
 	background: var(--color-primary-400);
 	transition: var(--transition-all);	
 	
-	@container (min-width: 62rem) {
+	@container section (min-width: 62rem) {
 		& {
 			--padding: var(--space-2xl);
 		}

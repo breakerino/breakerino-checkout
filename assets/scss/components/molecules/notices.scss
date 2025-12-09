@@ -20,6 +20,11 @@
 	&:is(.woocommerce-message, .woocommerce-info) {
 		--notice-text-color: var(--color-primary-600);
 		--notice-background: var(--color-primary-300);
+		flex-wrap: wrap;
+		gap: var(--space-xs);
+		a {
+			margin-left: 0;
+		}
 	}
 	
 	&:is(.woocommerce-error) {
